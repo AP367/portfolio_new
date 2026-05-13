@@ -200,10 +200,10 @@ function Navbar({ active }) {
         {/* Desktop Menu */}
         <div className="nav-desktop" style={{ display: "flex", gap: "25px" }}>
           {NAV_LINKS.map(link => (
-            <button key={link} onClick={() => scrollTo(link)} style={{
+            <button key={link} className="nav-link" onClick={() => scrollTo(link)} style={{
               background: "none", border: "none",
               color: active === link.toLowerCase() ? "#00d4ff" : "rgba(255,255,255,0.6)",
-              fontFamily: "'Share Tech Mono', monospace", fontSize: "33px",
+              fontFamily: "'Share Tech Mono', monospace",
               cursor: "pointer", transition: "0.2s", textTransform: "uppercase",
               letterSpacing: "1px"
             }}>{link}</button>
@@ -222,9 +222,9 @@ function Navbar({ active }) {
       {menuOpen && (
         <div style={{ background: "#060a16", padding: "20px", borderBottom: "1px solid rgba(0, 212, 255, 0.1)" }}>
           {NAV_LINKS.map(link => (
-            <button key={link} onClick={() => scrollTo(link)} style={{
+            <button key={link} className="nav-mobile-link" onClick={() => scrollTo(link)} style={{
               display: "block", width: "100%", textAlign: "left", background: "none",
-              border: "none", color: "white", padding: "15px 0", fontSize: "42px",
+              border: "none", color: "white", padding: "15px 0",
               fontFamily: "'Share Tech Mono', monospace", textTransform: "uppercase"
             }}>{link}</button>
           ))}
@@ -1148,9 +1148,23 @@ export default function App() {
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: #060a16; }
         ::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.28); border-radius: 3px; }
+        .nav-desktop .nav-link {
+          font-size: 18px;
+        }
+        .nav-mobile-link {
+          font-size: 14px;
+        }
+        @media (max-width: 1024px) {
+          .nav-desktop .nav-link {
+            font-size: 16px;
+          }
+        }
         @media (max-width: 780px) {
           .nav-desktop { display: none !important; }
           .nav-mobile-btn { display: flex !important; }
+          .nav-mobile-link {
+            font-size: 14px;
+          }
         }
         @media (max-width: 640px) {
           section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
