@@ -351,10 +351,9 @@ function About() {
           fontSize: "1.1rem"
         }}>
           <p>
-            I'm Adhish Paudel, an Electrical Engineering undergraduate at the Institute of Engineering, 
-            Pulchowk Campus; one of Nepal's most prestigious engineering institutions[cite: 1, 2]. 
-            From a young age, I was drawn to how things work—that curiosity eventually became a calling[cite: 2]. 
-            I believe that real engineering is learned by building, not just by reading textbooks[cite: 3].
+            I'm Adhish Paudel, an Electrical Engineering undergraduate at the Institute of Engineering, Pulchowk Campus; one of Nepal's most prestigious engineering institutions.
+            From a young age, I was drawn to how things works that curiosity eventually became a calling. I believe that real engineering is learned by building; not just by reading textbooks.
+            Growing up in a supportive and academically oriented environment played a major role in shaping my personality, interests, and ambitions.
           </p>
         </div>
 
@@ -368,20 +367,43 @@ function About() {
             animation: "fadeIn 0.6s ease" 
           }}>
             <p>
-              Born in 2006 into a middle-class family in Nepal, I was taught the value of discipline and 
-              hard work[cite: 5, 6]. My father, Ramesh Kumar Paudel, an Assistant Professor of Economics, 
-              encouraged me to think critically, while my mother, Laxmi Sharma, taught me the importance 
-              of responsibility.
+              Born in 2006 into a middle-class family in Nepal, I grew up in a supportive and academically oriented environment. 
+              From an early age, I was taught the value of discipline, education, and hard work, which played a very important role in what I have become today. 
             </p>
             <p>
-              My academic journey through Takshashila Academy and Meridian International School solidified 
-              my fascination with mathematics and technology[cite: 14, 15, 16]. This path led me to 
-              IOE Pulchowk, where I now study electrical systems, electronics, and power engineering[cite: 21, 24].
+              My dad, Ramesh Kumar Paudel, is an Assistant Professor of Economics. He always encouraged me to ask questions, think critically, and understand concepts deeply rather than memorizing them.
+              Because of his influence, I gradually developed a strong interest in mathematics and science.
+              My mother, Laxmi Sharma, works as an accountant and has always been a symbol of responsibility and determination in our family. 
+              From her, I learned the importance of consistency, patience, and managing responsibilities efficiently.
+              And the most important person in my life, my sister Aaradhya whom I love the most. Our bond is like of Tom and Jerry; Chaotic but very deep. 
             </p>
             <p>
-              Beyond the lab, I am a curious person who enjoys cooking, traveling, and trekking[cite: 26, 32, 33]. 
-              These experiences, combined with leadership roles in group projects, have shaped my resilience 
-              and desire to contribute positively to society[cite: 28, 34, 36].
+              My educational journey began at Takshashila Academy, where I studied until Grade 7. Later, I joined Meridian International School in Grade 8, form where I completed my SEE. 
+              During this period, my interest in mathematics and science became even stronger. 
+              I enjoyed solving problems and understand scientific concepts, I also started developing a fascination for computers and technology.               
+              I was always eager to learn new things and actively participated in classroom activities. 
+              After completing my secondary education, I chose the science faculty in high school with Physics, Chemistry, Mathematics, and Computer Science as my major subjects.
+              This was an important decision because it aligned perfectly with my interests and future goals. It was a very important phase of my life as it was the base for my future in engineering.
+            </p>
+            <p>
+              One of the most significant milestones in my life came when I got admitted to the Institute of Engineering (IOE), Pulchowk Campus.
+               Getting accepted into IOE Pulchowk was a proud achievement for me. It marked the beginning of a new chapter in my journey toward becoming an engineer. 
+               Currently, I am pursuing Electrical Engineering at IOE Pulchowk, where I am continuously learning about electrical systems, electronics, power engineering, and emerging technologies.
+               The field of electrical engineering perfectly matches my passion for problem solving, innovation, and understanding how modern technology powers the world around us.
+            </p>
+            <p>
+              Apart from academics, I have always been a curious person who loves understanding how things function.
+               Whether it is a machine, an electrical system, or even a simple everyday device, this curiosity naturally pushed me toward technical and engineering-related fields.
+               I also enjoy taking leadership roles in group activities and projects. I believe leadership is not just about guiding others but also about learning teamwork, communication, and responsibility.
+               Throughout my school life, I often enjoyed collaborating with classmates, sharing ideas, and helping organize activities. 
+               I also have several personal interests and hobbies that help me maintain balance in life. 
+               I enjoy cooking because it allows me to be creative and experiment with different ideas.
+              Traveling and trekking are also among my favorite activities. Exploring new places, culture and traditions, experiencing nature, and challenging myself physically through trekking gives me a sense of adventure and refreshes my mind.
+               These experiences teach me resilience, adaptability, and appreciation for the world beyond classrooms and textbooks.
+            </p>
+            <p>
+              Overall, my journey so far has been shaped by curiosity, determination, and the constant desire to learn and grow. 
+              I believe that with continuous learning, leadership, and hard work, I can contribute positively to society while also achieving my personal and professional goals.
             </p>
           </div>
         )}
