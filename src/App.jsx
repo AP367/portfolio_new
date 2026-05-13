@@ -370,27 +370,24 @@ Overall, my journey so far has been shaped by curiosity, determination, and the 
         margin: "0 auto"
       }} className="about-grid">
         
-        <div style={{ textAlign: "justify" }}>
-          <p style={{ color: "rgba(255,255,255,0.72)", lineHeight: "1.9", fontSize: "1.1rem", whiteSpace: "pre-line" }}>
-            {isExpanded ? fullBio : shortBio}
-          </p>
-
+        <div style={{ textAlign: "center", marginTop: "30px", width: "100%" }}>
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
             style={{
-              display: "block",
-              width: "100%",
-              marginTop: "2rem",
-              padding: "12px 24px",
-              background: "transparent",
-              border: "1px solid #00d4ff",
+              background: "none",
+              border: "1px solid rgba(0, 212, 255, 0.3)",
               color: "#00d4ff",
-              textAlign: "center",
               fontFamily: "'Share Tech Mono', monospace",
-              cursor: "pointer"
+              fontSize: "0.85rem",
+              padding: "10px 24px",
+              borderRadius: "4px",
+              cursor: "pointer",
+              transition: "0.3s"
             }}
+            onMouseOver={(e) => e.target.style.background = "rgba(0, 212, 255, 0.1)"}
+            onMouseOut={(e) => e.target.style.background = "transparent"}
           >
-            {isExpanded ? "Show Less" : "Read more"}
+            {isExpanded ? "Read Less ↑" : "Read More →"}
           </button>
         </div>
       </div>
