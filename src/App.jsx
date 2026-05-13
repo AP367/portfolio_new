@@ -1189,7 +1189,9 @@ export default function App() {
         }
         .about-grid > div:last-child {
           display: flex;
-          justify-content: flex-end;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 30px;
         }
         @media (max-width: 768px) {
           .about-grid {
