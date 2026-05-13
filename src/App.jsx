@@ -268,7 +268,7 @@ function Hero() {
       </div>
       <div style={{ position: "relative", zIndex: 1, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "50px", alignItems: "center", maxWidth: 1200, width: "100%" }} className="hero-grid">
         <div style={{ textAlign: "center" }}>
-          <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 11, letterSpacing: 4, marginBottom: 20, opacity: 0.75, animation: "fadeUp 0.8s ease 0.2s both" }}>
+          <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 13, letterSpacing: 4, marginBottom: 20, opacity: 0.75, animation: "fadeUp 0.8s ease 0.2s both" }}>
             Engineering Electricity, Exploring Infinity
           </div>
           <h1 style={{ fontSize: "clamp(2.8rem, 7vw, 5.2rem)", fontWeight: 900, lineHeight: 1.08, marginBottom: 18, fontFamily: "'Sora', sans-serif", animation: "fadeUp 0.8s ease 0.4s both", color: "white" }}>
@@ -333,15 +333,11 @@ function About() {
 
   return (
     <section id="about" style={{ padding: "100px 0", background: "#060a16" }}>
+      <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 18, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>01.About Me  </div>
       <div style={{ maxWidth: "900px", margin: "0 auto", padding: "0 20px" }}>
-        <h2 style={{ 
-          fontFamily: "'Sora', sans-serif", 
-          color: "#00d4ff", 
-          fontSize: "2rem", 
-          marginBottom: "30px" 
-        }}>
-          01. About Me
-        </h2>
+        <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, fontFamily: "'Sora', sans-serif", marginBottom: 32, color: "white" }}>
+           Signals, <span style={{ color: "#00d4ff" }}>Systems</span> & endless curiosity.
+          </h2>
 
         {/* PRIMARY INTRODUCTION (Always Visible) */}
         <div style={{ 
@@ -445,7 +441,7 @@ function Skills() {
     <section id="skills" style={{ padding: "100px 2rem", background: "rgba(0,212,255,0.02)", borderTop: "1px solid rgba(0,212,255,0.07)", borderBottom: "1px solid rgba(0,212,255,0.07)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <RevealDiv>
-          <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 11, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>02. SKILLS & INTERESTS</div>
+          <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 18, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>02.SKILLS & INTERESTS</div>
           <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, fontFamily: "'Sora', sans-serif", marginBottom: 32, color: "white" }}>
             Technical Arsenal <span style={{ color: "#00d4ff" }}>&</span> Passions
           </h2>
@@ -489,7 +485,7 @@ function Projects() {
   return (
     <section id="projects" style={{ padding: "100px 2rem", maxWidth: 1100, margin: "0 auto" }}>
       <RevealDiv>
-        <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 11, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>03. PROJECTS</div>
+        <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 18, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>03.PROJECTS</div>
         <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, fontFamily: "'Sora', sans-serif", marginBottom: 12, color: "white" }}>My <span style={{ color: "#00d4ff" }}>Works</span></h2>
         <p style={{ color: "rgba(255,255,255,0.42)", fontFamily: "'Sora', sans-serif", marginBottom: 56, fontSize: "0.9rem" }}>Design. Build. Test. Repeat</p>
       </RevealDiv>
@@ -577,7 +573,7 @@ function Academic() {
     <section id="academic" style={{ padding: "100px 2rem", background: "rgba(0,212,255,0.02)", borderTop: "1px solid rgba(0,212,255,0.07)", borderBottom: "1px solid rgba(0,212,255,0.07)" }}>
       <div style={{ maxWidth: 860, margin: "0 auto" }}>
         <RevealDiv>
-          <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 11, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>04. ACADEMIC JOURNEY</div>
+          <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 18, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>04.ACADEMIC JOURNEY</div>
           <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, fontFamily: "'Sora', sans-serif", marginBottom: 12, color: "white" }}>
             Education <span style={{ color: "#00d4ff" }}>Timeline</span>
           </h2>
@@ -730,7 +726,7 @@ function Blog({ onOpenArticle }) {
   return (
     <section id="blog" style={{ padding: "100px 0" }}>
       <div style={{ textAlign: "center", marginBottom: "60px" }}>
-        <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", letterSpacing: 4 }}>05. ARTICLES</div>
+                  <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 18, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>05.Article </div>
         <h2 style={{ fontSize: "2.5rem", fontWeight: 900, color: "white" }}>Latest <span style={{ color: "#00d4ff" }}>Writing</span></h2>
       </div>
  
@@ -828,8 +824,8 @@ function Gallery() {
         transition: "all 0.8s ease"
       }}>
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
-          <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 14, letterSpacing: 4, marginBottom: 8 }}>
-            06. MOMENTS
+          <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 18, letterSpacing: 4, marginBottom: 8 }}>
+            06.MOMENTS
           </div>
           <h2 style={{ fontSize: "2.5rem", fontWeight: 900, fontFamily: "'Sora', sans-serif", color: "white" }}>
             Visual <span style={{ color: "#00d4ff" }}>Diaries</span>
@@ -933,7 +929,7 @@ function Contact() {
   return (
     <section id="contact" style={{ padding: "100px 3rem", textAlign: "center" }}>
       <div style={{ maxWidth: 800, margin: "0 auto" }}>
-        <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 11, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>
+        <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 18, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>
           07. CONTACT
         </div>
 
