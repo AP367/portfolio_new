@@ -203,7 +203,7 @@ function Navbar({ active }) {
             <button key={link} onClick={() => scrollTo(link)} style={{
               background: "none", border: "none",
               color: active === link.toLowerCase() ? "#00d4ff" : "rgba(255,255,255,0.6)",
-              fontFamily: "'Share Tech Mono', monospace", fontSize: "11px",
+              fontFamily: "'Share Tech Mono', monospace", fontSize: "33px",
               cursor: "pointer", transition: "0.2s", textTransform: "uppercase",
               letterSpacing: "1px"
             }}>{link}</button>
@@ -224,7 +224,7 @@ function Navbar({ active }) {
           {NAV_LINKS.map(link => (
             <button key={link} onClick={() => scrollTo(link)} style={{
               display: "block", width: "100%", textAlign: "left", background: "none",
-              border: "none", color: "white", padding: "15px 0", fontSize: "14px",
+              border: "none", color: "white", padding: "15px 0", fontSize: "42px",
               fontFamily: "'Share Tech Mono', monospace", textTransform: "uppercase"
             }}>{link}</button>
           ))}
