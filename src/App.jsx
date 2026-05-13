@@ -360,12 +360,14 @@ Overall, my journey so far has been shaped by curiosity, determination, and the 
 
       <div ref={ref} style={{
         display: "grid",
-        gridTemplateColumns: "1fr 400px",
+        gridTemplateColumns: "1fr",
         gap: "50px",
         alignItems: "start",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(32px)",
-        transition: "all 0.8s ease"
+        transition: "all 0.8s ease",
+        maxWidth: "800px",
+        margin: "0 auto"
       }} className="about-grid">
         
         <div style={{ textAlign: "justify" }}>
@@ -387,21 +389,6 @@ Overall, my journey so far has been shaped by curiosity, determination, and the 
           >
             {isExpanded ? "Show Less" : "Read more"}
           </button>
-        </div>
-
-        {/* Photo stays visible at all times */}
-        <div style={{ position: "sticky", top: "20px" }}>
-          <img 
-            src={IMG_PROFILE} 
-            alt="Adhish" 
-            style={{ 
-              width: "100%", 
-              maxWidth: "380px", 
-              borderRadius: "12px", 
-              border: "1px solid #00d4ff",
-              boxShadow: "0 20px 30px -15px rgba(2,12,27,0.7)"
-            }} 
-          />
         </div>
       </div>
     </section>
@@ -1198,7 +1185,7 @@ export default function App() {
           }
         }
         .about-grid {
-          grid-template-columns: 1fr 400px;
+          grid-template-columns: 1fr;
         }
         .about-grid > div:last-child {
           display: flex;
@@ -1208,11 +1195,6 @@ export default function App() {
           .about-grid {
             grid-template-columns: 1fr;
             gap: 30px;
-          }
-          .about-grid > div:last-child {
-            display: flex;
-            justify-content: center;
-            order: 2;
           }
         }
         @media (max-width: 640px) {
