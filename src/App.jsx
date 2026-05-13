@@ -342,14 +342,13 @@ Overall, my journey so far has been shaped by curiosity, determination, and the 
 
       <div ref={ref} style={{
         display: "grid",
-        // Grid stays as two columns even when expanded
-        gridTemplateColumns: "1fr 400px", 
+        gridTemplateColumns: "1fr 400px",
         gap: "50px",
         alignItems: "start",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(32px)",
         transition: "all 0.8s ease"
-      }}>
+      }} className="about-grid">
         
         <div style={{ textAlign: "justify" }}>
           <p style={{ color: "rgba(255,255,255,0.72)", lineHeight: "1.9", fontSize: "1.1rem", whiteSpace: "pre-line" }}>
@@ -1157,6 +1156,18 @@ export default function App() {
         }
         section {
           scroll-margin-top: 100px;
+        }
+        .about-grid {
+          grid-template-columns: 1fr 400px;
+        }
+        @media (max-width: 1024px) {
+          .about-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+          }
+          .about-grid > div:last-child {
+            order: 2;
+          }
         }
         @media (max-width: 640px) {
           section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
