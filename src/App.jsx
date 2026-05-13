@@ -347,6 +347,7 @@ function About() {
         <div style={{ 
           fontFamily: "'Sora', sans-serif", 
           lineHeight: "1.8", 
+          textAlign: "justify",
           color: "rgba(255,255,255,0.9)",
           fontSize: "1.1rem"
         }}>
@@ -364,6 +365,7 @@ function About() {
             fontFamily: "'Sora', sans-serif", 
             lineHeight: "1.8", 
             color: "rgba(255,255,255,0.8)",
+            textAlign: "justify",
             animation: "fadeIn 0.6s ease" 
           }}>
             <p>
