@@ -329,58 +329,74 @@ function Hero() {
 // ABOUT
 // ════════════════════════════════════════════════════════════════
 function About() {
-  const [ref, visible] = useScrollReveal();
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const shortBio = `I'm Adhish Paudel, an Electrical Engineering undergraduate at the Institute of Engineering, Pulchowk Campus; one of Nepal's most prestigious engineering institutions. From a young age, I was drawn to how things works that curiosity eventually became a calling. I believe that real engineering is learned by building; not just by reading textbooks. Growing up in a supportive and academically oriented environment played a major role in shaping my personality, interests, and ambitions.`;
-
-  const fullBio = `Born in 2006 into a middle-class family in Nepal, I grew up in a supportive and academically oriented environment. From an early age, I was taught the value of discipline, education, and hard work, which played a very important role in what I have become today. 
-
-My dad, Ramesh Kumar Paudel, is an Assistant Professor of Economics. He always encouraged me to ask questions, think critically, and understand concepts deeply rather than memorizing them. Because of his influence, I gradually developed a strong interest in mathematics and science. My mother, Laxmi Sharma, works as an accountant and has always been a symbol of responsibility and determination in our family. And the most important person in my life, my sister Aaradhya whom I love the most. Our bond is like of Tom and Jerry; Chaotic but very deep. 
-
-My educational journey began at Takshashila Academy, where I studied until Grade 7. Later, I joined Meridian International School in Grade 8, form where I completed my SEE. During this period, my interest in mathematics and science became stronger. I enjoyed solving problems and understand scientific concepts, I also started developing a fascination for computers and technology. I was always eager to learn new things and actively participated in classroom activities. After completing my secondary education, I chose the science faculty in high school with Physics, Chemistry, Mathematics, and Computer Science as my major subjects.
-
-One of the most significant milestones in my life came when I got admitted to the Institute of Engineering (IOE), Pulchowk Campus. Getting accepted into IOE Pulchowk was a proud achievement for me. It marked the beginning of a new chapter in my journey toward becoming an engineer. Currently, I am pursuing Electrical Engineering at IOE Pulchowk, where I am continuously learning about electrical systems, electronics, power engineering, and emerging technologies.
-
-Apart from academics, I have always been a curious person who loves understanding how things function. I also enjoy taking leadership roles in group activities and projects. I believe leadership is not just about guiding others but also about learning teamwork, communication, and responsibility. I also have several personal interests and hobbies that help me maintain balance in life. I enjoy cooking because it allows me to be creative and experiment with different ideas. Traveling and trekking are also among my favorite activities.
-
-Overall, my journey so far has been shaped by curiosity, determination, and the constant desire to learn and grow. I believe that with continuous learning, leadership, and hard work, I can contribute positively to society while also achieving my personal and professional goals.`;
-
   return (
-    <section id="about" style={{ padding: "100px 0", background: "transparent" }}>
-      {/* Centered Header */}
-      <div style={{ textAlign: "center", marginBottom: "50px" }}>
-        <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 14, letterSpacing: 4, marginBottom: 10 }}>
-          01. ABOUT ME
-        </div>
-        <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 900, fontFamily: "'Sora', sans-serif", color: "white" }}>
-          Signals, <span style={{ color: "#00d4ff" }}>systems</span>, and endless <span style={{ color: "#00d4ff" }}>curiosity.</span>
+    <section id="about" style={{ padding: "100px 0", background: "#060a16" }}>
+      <div style={{ maxWidth: "900px", margin: "0 auto", padding: "0 20px" }}>
+        <h2 style={{ 
+          fontFamily: "'Sora', sans-serif", 
+          color: "#00d4ff", 
+          fontSize: "2rem", 
+          marginBottom: "30px" 
+        }}>
+          01. About Me
         </h2>
-      </div>
 
-      <div ref={ref} style={{
-        display: "grid",
-        gridTemplateColumns: "1fr",
-        gap: "50px",
-        alignItems: "start",
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(32px)",
-        transition: "all 0.8s ease",
-        maxWidth: "800px",
-        margin: "0 auto"
-      }} className="about-grid">
-        
-        <div style={{ textAlign: "center", marginTop: "30px", width: "100%" }}>
+        {/* PRIMARY INTRODUCTION (Always Visible) */}
+        <div style={{ 
+          fontFamily: "'Sora', sans-serif", 
+          lineHeight: "1.8", 
+          color: "rgba(255,255,255,0.9)",
+          fontSize: "1.1rem"
+        }}>
+          <p>
+            I'm Adhish Paudel, an Electrical Engineering undergraduate at the Institute of Engineering, 
+            Pulchowk Campus; one of Nepal's most prestigious engineering institutions[cite: 1, 2]. 
+            From a young age, I was drawn to how things work—that curiosity eventually became a calling[cite: 2]. 
+            I believe that real engineering is learned by building, not just by reading textbooks[cite: 3].
+          </p>
+        </div>
+
+        {/* EXPANDABLE CONTENT (The full story from your document) */}
+        {isExpanded && (
+          <div style={{ 
+            marginTop: "20px", 
+            fontFamily: "'Sora', sans-serif", 
+            lineHeight: "1.8", 
+            color: "rgba(255,255,255,0.8)",
+            animation: "fadeIn 0.6s ease" 
+          }}>
+            <p>
+              Born in 2006 into a middle-class family in Nepal, I was taught the value of discipline and 
+              hard work[cite: 5, 6]. My father, Ramesh Kumar Paudel, an Assistant Professor of Economics, 
+              encouraged me to think critically, while my mother, Laxmi Sharma, taught me the importance 
+              of responsibility.
+            </p>
+            <p>
+              My academic journey through Takshashila Academy and Meridian International School solidified 
+              my fascination with mathematics and technology[cite: 14, 15, 16]. This path led me to 
+              IOE Pulchowk, where I now study electrical systems, electronics, and power engineering[cite: 21, 24].
+            </p>
+            <p>
+              Beyond the lab, I am a curious person who enjoys cooking, traveling, and trekking[cite: 26, 32, 33]. 
+              These experiences, combined with leadership roles in group projects, have shaped my resilience 
+              and desire to contribute positively to society[cite: 28, 34, 36].
+            </p>
+          </div>
+        )}
+
+        {/* CENTERED TOGGLE BUTTON */}
+        <div style={{ textAlign: "center", marginTop: "40px" }}>
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
             style={{
-              background: "none",
-              border: "1px solid rgba(0, 212, 255, 0.3)",
+              background: "transparent",
+              border: "1px solid #00d4ff",
               color: "#00d4ff",
               fontFamily: "'Share Tech Mono', monospace",
-              fontSize: "0.85rem",
-              padding: "10px 24px",
-              borderRadius: "4px",
+              padding: "12px 30px",
+              borderRadius: "5px",
               cursor: "pointer",
               transition: "0.3s"
             }}
