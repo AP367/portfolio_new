@@ -266,41 +266,59 @@ function Hero() {
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
       </div>
-      <div style={{ position: "relative", zIndex: 1, textAlign: "center", maxWidth: 820 }}>
-        <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 11, letterSpacing: 4, marginBottom: 20, opacity: 0.75, animation: "fadeUp 0.8s ease 0.2s both" }}>
-          Engineering Electricity, Exploring Infinity
+      <div style={{ position: "relative", zIndex: 1, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "50px", alignItems: "center", maxWidth: 1200, width: "100%" }} className="hero-grid">
+        <div style={{ textAlign: "center" }}>
+          <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 11, letterSpacing: 4, marginBottom: 20, opacity: 0.75, animation: "fadeUp 0.8s ease 0.2s both" }}>
+            Engineering Electricity, Exploring Infinity
+          </div>
+          <h1 style={{ fontSize: "clamp(2.8rem, 7vw, 5.2rem)", fontWeight: 900, lineHeight: 1.08, marginBottom: 18, fontFamily: "'Sora', sans-serif", animation: "fadeUp 0.8s ease 0.4s both", color: "white" }}>
+            Hi, I'm{" "}
+            <span style={{ background: "linear-gradient(135deg, #00d4ff 0%, #00ff9d 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Adhish Paudel</span>
+          </h1>
+          <div style={{ fontSize: "clamp(1rem, 2.8vw, 1.5rem)", color: "rgba(255,255,255,0.65)", fontFamily: "'Share Tech Mono', monospace", minHeight: 44, marginBottom: 36, animation: "fadeUp 0.8s ease 0.6s both" }}>
+            {typed}<span style={{ color: "#00d4ff", animation: "blink 1s step-end infinite" }}>|</span>
+          </div>
+          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", animation: "fadeUp 0.8s ease 0.8s both" }}>
+      <a 
+      href="/Documents/Adhish_Paudel_CV.pdf" 
+      target="_blank" 
+      rel="noreferrer"
+      style={{ textDecoration: "none" }}
+    >
+      <button onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} style={{
+              background: "transparent", border: "1px solid rgba(0,212,255,0.45)", color: "#00d4ff",
+              fontWeight: 600, fontFamily: "'Sora', sans-serif", padding: "13px 30px", borderRadius: 8,
+              fontSize: 14, letterSpacing: 0.5, cursor: "pointer", transition: "all 0.2s",
+            }} onMouseEnter={e => { e.target.style.background = "rgba(0,212,255,0.08)"; e.target.style.borderColor = "#00d4ff"; }}
+               onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.borderColor = "rgba(0,212,255,0.45)"; }}>
+              RESUME ↗
+            </button>
+    </a>
+            <button onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} style={{
+              background: "transparent", border: "1px solid rgba(0,212,255,0.45)", color: "#00d4ff",
+              fontWeight: 600, fontFamily: "'Sora', sans-serif", padding: "13px 30px", borderRadius: 8,
+              fontSize: 14, letterSpacing: 0.5, cursor: "pointer", transition: "all 0.2s",
+            }} onMouseEnter={e => { e.target.style.background = "rgba(0,212,255,0.08)"; e.target.style.borderColor = "#00d4ff"; }}
+               onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.borderColor = "rgba(0,212,255,0.45)"; }}>
+              Get In Touch →
+            </button>
+          </div>
         </div>
-        <h1 style={{ fontSize: "clamp(2.8rem, 7vw, 5.2rem)", fontWeight: 900, lineHeight: 1.08, marginBottom: 18, fontFamily: "'Sora', sans-serif", animation: "fadeUp 0.8s ease 0.4s both", color: "white" }}>
-          Hi, I'm{" "}
-          <span style={{ background: "linear-gradient(135deg, #00d4ff 0%, #00ff9d 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Adhish Paudel</span>
-        </h1>
-        <div style={{ fontSize: "clamp(1rem, 2.8vw, 1.5rem)", color: "rgba(255,255,255,0.65)", fontFamily: "'Share Tech Mono', monospace", minHeight: 44, marginBottom: 36, animation: "fadeUp 0.8s ease 0.6s both" }}>
-          {typed}<span style={{ color: "#00d4ff", animation: "blink 1s step-end infinite" }}>|</span>
-        </div>
-        <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", animation: "fadeUp 0.8s ease 0.8s both" }}>
-    <a 
-    href="/Documents/Adhish_Paudel_CV.pdf" 
-    target="_blank" 
-    rel="noreferrer"
-    style={{ textDecoration: "none" }}
-  >
-    <button onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} style={{
-            background: "transparent", border: "1px solid rgba(0,212,255,0.45)", color: "#00d4ff",
-            fontWeight: 600, fontFamily: "'Sora', sans-serif", padding: "13px 30px", borderRadius: 8,
-            fontSize: 14, letterSpacing: 0.5, cursor: "pointer", transition: "all 0.2s",
-          }} onMouseEnter={e => { e.target.style.background = "rgba(0,212,255,0.08)"; e.target.style.borderColor = "#00d4ff"; }}
-             onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.borderColor = "rgba(0,212,255,0.45)"; }}>
-            RESUME ↗
-          </button>
-  </a>
-          <button onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} style={{
-            background: "transparent", border: "1px solid rgba(0,212,255,0.45)", color: "#00d4ff",
-            fontWeight: 600, fontFamily: "'Sora', sans-serif", padding: "13px 30px", borderRadius: 8,
-            fontSize: 14, letterSpacing: 0.5, cursor: "pointer", transition: "all 0.2s",
-          }} onMouseEnter={e => { e.target.style.background = "rgba(0,212,255,0.08)"; e.target.style.borderColor = "#00d4ff"; }}
-             onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.borderColor = "rgba(0,212,255,0.45)"; }}>
-            Get In Touch →
-          </button>
+
+        {/* Hero Display Picture */}
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }} className="hero-image">
+          <img 
+            src={IMG_PROFILE} 
+            alt="Adhish Paudel" 
+            style={{ 
+              width: "100%", 
+              maxWidth: "380px", 
+              height: "auto",
+              borderRadius: "12px", 
+              border: "2px solid #00d4ff",
+              boxShadow: "0 20px 40px rgba(0,212,255,0.2)"
+            }} 
+          />
         </div>
       </div>
     </section>
@@ -1156,6 +1174,28 @@ export default function App() {
         }
         section {
           scroll-margin-top: 100px;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .hero-image {
+          display: flex;
+          justify-content: flex-end;
+        }
+        @media (max-width: 768px) {
+          .hero-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+          }
+          .hero-image {
+            display: flex;
+            justify-content: center;
+            order: -1;
+          }
+          .hero-image img {
+            max-width: 100%;
+            height: auto;
+          }
         }
         .about-grid {
           grid-template-columns: 1fr 400px;
