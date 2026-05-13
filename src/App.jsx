@@ -270,7 +270,7 @@ function Hero() {
         <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 11, letterSpacing: 4, marginBottom: 20, opacity: 0.75, animation: "fadeUp 0.8s ease 0.2s both" }}>
           Engineering Electricity, Exploring Infinity
         </div>
-        <h1 style={{ fontSize: "clamp(2.8rem, 7vw, 5.2rem)", fontWeight: 900, lineHeight: 1.08, marginBottom: 18, fontFamily: "'Sora', sans-serif", animation: "fadeUp 0.8s ease 0.4s both" }}>
+        <h1 style={{ fontSize: "clamp(2.8rem, 7vw, 5.2rem)", fontWeight: 900, lineHeight: 1.08, marginBottom: 18, fontFamily: "'Sora', sans-serif", animation: "fadeUp 0.8s ease 0.4s both", color: "white" }}>
           Hi, I'm{" "}
           <span style={{ background: "linear-gradient(135deg, #00d4ff 0%, #00ff9d 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Adhish Paudel</span>
         </h1>
@@ -402,7 +402,7 @@ function Skills() {
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <RevealDiv>
           <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 11, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>02. SKILLS & INTERESTS</div>
-          <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, fontFamily: "'Sora', sans-serif", marginBottom: 32 }}>
+          <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, fontFamily: "'Sora', sans-serif", marginBottom: 32, color: "white" }}>
             Technical Arsenal <span style={{ color: "#00d4ff" }}>&</span> Passions
           </h2>
           <div style={{ display: "flex", gap: 0, marginBottom: 48, border: "1px solid rgba(0,212,255,0.2)", borderRadius: 10, overflow: "hidden", width: "fit-content" }}>
@@ -534,7 +534,7 @@ function Academic() {
       <div style={{ maxWidth: 860, margin: "0 auto" }}>
         <RevealDiv>
           <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 11, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>04. ACADEMIC JOURNEY</div>
-          <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, fontFamily: "'Sora', sans-serif", marginBottom: 12 }}>
+          <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, fontFamily: "'Sora', sans-serif", marginBottom: 12, color: "white" }}>
             Education <span style={{ color: "#00d4ff" }}>Timeline</span>
           </h2>
           <p style={{ color: "rgba(255,255,255,0.42)", fontFamily: "'Sora', sans-serif", marginBottom: 60, fontSize: "0.9rem" }}>From early schooling to engineering ambition.</p>
