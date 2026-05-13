@@ -200,10 +200,10 @@ function Navbar({ active }) {
         {/* Desktop Menu */}
         <div className="nav-desktop" style={{ display: "flex", gap: "25px" }}>
           {NAV_LINKS.map(link => (
-            <button key={link} className="nav-link" onClick={() => scrollTo(link)} style={{
+            <button key={link} onClick={() => scrollTo(link)} style={{
               background: "none", border: "none",
               color: active === link.toLowerCase() ? "#00d4ff" : "rgba(255,255,255,0.6)",
-              fontFamily: "'Share Tech Mono', monospace",
+              fontFamily: "'Share Tech Mono', monospace", fontSize: "11px",
               cursor: "pointer", transition: "0.2s", textTransform: "uppercase",
               letterSpacing: "1px"
             }}>{link}</button>
@@ -1148,23 +1148,15 @@ export default function App() {
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: #060a16; }
         ::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.28); border-radius: 3px; }
-        .nav-desktop .nav-link {
-          font-size: 11px;
-        }
-        .nav-mobile-link {
-          font-size: 14px;
-        }
-        @media (max-width: 1024px) {
-          .nav-desktop .nav-link {
-            font-size: 11px;
-          }
-        }
         @media (max-width: 780px) {
           .nav-desktop { display: none !important; }
           .nav-mobile-btn { display: flex !important; }
           .nav-mobile-link {
             font-size: 14px;
           }
+        }
+        section {
+          scroll-margin-top: 100px;
         }
         @media (max-width: 640px) {
           section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
@@ -1176,7 +1168,7 @@ export default function App() {
       {articleOpen ? (
         <ArticlePage onClose={() => { setArticleOpen(false); setTimeout(() => { document.getElementById("blog")?.scrollIntoView({ behavior: "smooth" }); }, 100); }} />
       ) : (
-      <div style={{ background: "#060a16", minHeight: "100vh" }}>
+      <div style={{ background: "#060a16", minHeight: "100vh", paddingTop: "70px" }}>
         <Navbar active={activeSection} />
         <Hero />
         <About articleOpen={articleOpen} setArticleOpen={setArticleOpen} />
