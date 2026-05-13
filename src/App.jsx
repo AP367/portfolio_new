@@ -372,7 +372,7 @@ Overall, my journey so far has been shaped by curiosity, determination, and the 
         </div>
 
         {/* Photo stays visible at all times */}
-        <div style={{ display: "flex", justifyContent: "flex-end", position: "sticky", top: "20px" }}>
+        <div style={{ position: "sticky", top: "20px" }}>
           <img 
             src={IMG_PROFILE} 
             alt="Adhish" 
@@ -1160,12 +1160,18 @@ export default function App() {
         .about-grid {
           grid-template-columns: 1fr 400px;
         }
-        @media (max-width: 1024px) {
+        .about-grid > div:last-child {
+          display: flex;
+          justify-content: flex-end;
+        }
+        @media (max-width: 768px) {
           .about-grid {
             grid-template-columns: 1fr;
             gap: 30px;
           }
           .about-grid > div:last-child {
+            display: flex;
+            justify-content: center;
             order: 2;
           }
         }
@@ -1174,6 +1180,10 @@ export default function App() {
           div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
           div[style*="grid-template-columns: 200px 1fr"] { grid-template-columns: 1fr !important; }
           div[style*="grid-template-columns: 130px 1fr"] { grid-template-columns: 1fr !important; }
+          .about-grid > div:last-child {
+            display: flex;
+            justify-content: center;
+          }
         }
       `}</style>
       {articleOpen ? (
