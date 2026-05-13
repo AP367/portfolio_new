@@ -446,7 +446,7 @@ function Projects() {
     <section id="projects" style={{ padding: "100px 2rem", maxWidth: 1100, margin: "0 auto" }}>
       <RevealDiv>
         <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 11, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>03. PROJECTS</div>
-        <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, fontFamily: "'Sora', sans-serif", marginBottom: 12 }}>My <span style={{ color: "#00d4ff" }}>Works</span></h2>
+        <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, fontFamily: "'Sora', sans-serif", marginBottom: 12, color: "white" }}>My <span style={{ color: "#00d4ff" }}>Works</span></h2>
         <p style={{ color: "rgba(255,255,255,0.42)", fontFamily: "'Sora', sans-serif", marginBottom: 56, fontSize: "0.9rem" }}>Design. Build. Test. Repeat</p>
       </RevealDiv>
       <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
@@ -687,7 +687,7 @@ function Blog({ onOpenArticle }) {
     <section id="blog" style={{ padding: "100px 0" }}>
       <div style={{ textAlign: "center", marginBottom: "60px" }}>
         <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", letterSpacing: 4 }}>05. ARTICLES</div>
-        <h2 style={{ fontSize: "2.5rem", fontWeight: 900 }}>Latest <span style={{ color: "#00d4ff" }}>Writing</span></h2>
+        <h2 style={{ fontSize: "2.5rem", fontWeight: 900, color: "white" }}>Latest <span style={{ color: "#00d4ff" }}>Writing</span></h2>
       </div>
  
       <div
@@ -787,7 +787,7 @@ function Gallery() {
           <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 14, letterSpacing: 4, marginBottom: 8 }}>
             06. MOMENTS
           </div>
-          <h2 style={{ fontSize: "2.5rem", fontWeight: 900, fontFamily: "'Sora', sans-serif" }}>
+          <h2 style={{ fontSize: "2.5rem", fontWeight: 900, fontFamily: "'Sora', sans-serif", color: "white" }}>
             Visual <span style={{ color: "#00d4ff" }}>Diaries</span>
           </h2>
         </div>
@@ -893,7 +893,7 @@ function Contact() {
           07. CONTACT
         </div>
 
-        <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, fontFamily: "'Sora', sans-serif", marginBottom: 20 }}>
+        <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, fontFamily: "'Sora', sans-serif", marginBottom: 20, color: "white" }}>
           Let's <span style={{ color: "#00d4ff" }}>Connect</span>
         </h2>
 
