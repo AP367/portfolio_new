@@ -1149,14 +1149,14 @@ export default function App() {
         ::-webkit-scrollbar-track { background: #060a16; }
         ::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.28); border-radius: 3px; }
         .nav-desktop .nav-link {
-          font-size: 18px;
+          font-size: 11px;
         }
         .nav-mobile-link {
           font-size: 14px;
         }
         @media (max-width: 1024px) {
           .nav-desktop .nav-link {
-            font-size: 16px;
+            font-size: 11px;
           }
         }
         @media (max-width: 780px) {
