@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 
-const IMG_BLOOD   = "./Photos/revolution-blood.jpg";
-const IMG_PROTEST = "./Photos/revolution-protest.png";
-const IMG_FIRE    = "./Photos/revolution-fire.jpg";
-const IMG_CLASH   = "./Photos/revolution-clash.png";
-const IMG_PROFILE = "./Photos/Photo.png"; // Your new profile photo
+const IMG_BLOOD   = "/Photos/revolution-blood.jpg";
+const IMG_PROTEST = "/Photos/revolution-protest.png";
+const IMG_FIRE    = "/Photos/revolution-fire.jpg";
+const IMG_CLASH   = "/Photos/revolution-clash.png";
+const IMG_PROFILE = "/Photos/Photo.png"; // Your new profile photo
 
 const useScrollReveal = () => {
   const ref = useRef(null);
@@ -64,7 +64,7 @@ const PROJECTS = [
     intro: "An adaptive fault classification system developed for double-circuit transmission lines to accurately detect and classify electrical faults under mutual coupling conditions. The proposed method employs Discrete Wavelet Transform (DWT) for real-time extraction of transient current features and utilizes distance-adaptive threshold logic to identify fault types with high precision. By enabling fast and reliable fault isolation without requiring offline training, the system enhances transmission network protection, minimizes misclassification, and improves overall power system reliability.",
     tech: ["Matlab", "Simulink", "db4 wavelet", "DWT Method"],
     pdfLabel: "View Project Report",
-    pdfUrl: "./Documents/Research_Paper Final.pdf",
+    pdfUrl: "/Documents/Research_Paper Final.pdf",
   },
   {
     title: "GSM-based Remote Monitoring System",
@@ -89,29 +89,29 @@ const PROJECTS = [
 ];
 
 const GALLERY_ITEMS= [
- { url: "./Photos/Mountains.jpeg", caption: "Snow, silence, serenity." },
+ { url: "/Photos/Mountains.jpeg", caption: "Snow, silence, serenity." },
 
-{ url: "./Photos/Langtang Lerung.jpg", caption: "When dawn kissed Langtang Lerung." },
+{ url: "/Photos/Langtang Lerung.jpg", caption: "When dawn kissed Langtang Lerung." },
 
-{ url: "./Photos/Tsergori's Trail.jpg", caption: "Road to heaven??" },
+{ url: "/Photos/Tsergori's Trail.jpg", caption: "Road to heaven??" },
 
-{ url: "./Photos/Crazy menu.jpg", caption: "One of the craziest menu I've ever seen." },
+{ url: "/Photos/Crazy menu.jpg", caption: "One of the craziest menu I've ever seen." },
 
-{ url: "./Photos/Chiya Bari.jpg", caption: "इलामको चियाबारी." },
+{ url: "/Photos/Chiya Bari.jpg", caption: "इलामको चियाबारी." },
 
-{ url: "./Photos/Pathivara.jpeg", caption: "Pathivara Mata" },
+{ url: "/Photos/Pathivara.jpeg", caption: "Pathivara Mata" },
 
-{ url: "./Photos/Pathivara Mandir.jpg", caption: "Pathivara" },
+{ url: "/Photos/Pathivara Mandir.jpg", caption: "Pathivara" },
 
-{ url: "./Photos/Darjeeling.jpg", caption: "Darjeeling" },
+{ url: "/Photos/Darjeeling.jpg", caption: "Darjeeling" },
 
-{ url: "./Photos/Kalinchowk View.jpg", caption: "Above the clouds, beyond the noise." },
+{ url: "/Photos/Kalinchowk View.jpg", caption: "Above the clouds, beyond the noise." },
 
-{ url: "./Photos/Rara.jpeg", caption: "रारा कि अप्सरा" },
+{ url: "/Photos/Rara.jpeg", caption: "रारा कि अप्सरा" },
 
-{ url: "./Photos/Jumla.jpg", caption: "Jumla" },
+{ url: "/Photos/Jumla.jpg", caption: "Jumla" },
 
-{ url: "./Photos/Surkhet.jpg", caption: "Surkhet" },
+{ url: "/Photos/Surkhet.jpg", caption: "Surkhet" },
 
 
 ];
@@ -279,7 +279,7 @@ function Hero() {
         </div>
         <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", animation: "fadeUp 0.8s ease 0.8s both" }}>
     <a 
-    href="./Documents/Adhish_Paudel_CV.pdf" 
+    href="/Documents/Adhish_Paudel_CV.pdf" 
     target="_blank" 
     rel="noreferrer"
     style={{ textDecoration: "none" }}
