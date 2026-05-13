@@ -179,7 +179,7 @@ function Navbar({ active }) {
       background: scrolled ? "rgba(6, 10, 22, 0.95)" : "transparent",
       backdropFilter: scrolled ? "blur(15px)" : "none",
       borderBottom: scrolled ? "1px solid rgba(0, 212, 255, 0.1)" : "none",
-      transition: "all 0.4s ease", padding: "0 2rem",
+      transition: "all 0.4s ease", padding: "0 3rem",
     }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 70 }}>
         
@@ -257,7 +257,7 @@ function Hero() {
   }, []);
 
   return (
-    <section id="hero" style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden", padding: "0 2rem" }}>
+    <section id="hero" style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden", padding: "0 3rem" }}>
       <div style={{ position: "absolute", inset: 0 }}>
         <div style={{ position: "absolute", top: "18%", left: "8%", width: 500, height: 500, background: "radial-gradient(circle, rgba(0,212,255,0.07) 0%, transparent 65%)", borderRadius: "50%" }} />
         <div style={{ position: "absolute", bottom: "15%", right: "8%", width: 350, height: 350, background: "radial-gradient(circle, rgba(0,255,157,0.05) 0%, transparent 65%)", borderRadius: "50%" }} />
@@ -631,7 +631,7 @@ function ArticlePage({ onClose }) {
       <div style={{ position: "relative", height: 340, overflow: "hidden" }}>
         <img src={IMG_FIRE} alt="GenZ Revolution" style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.35)" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 40%, #060a16 100%)" }} />
-        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "0 2rem", textAlign: "center" }}>
+        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "0 3rem", textAlign: "center" }}>
           <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#ff4444", fontSize: 11, letterSpacing: 4, marginBottom: 16, opacity: 0.9 }}>MEMORABLE DIARY · 2025</div>
           <h1 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 900, fontSize: "clamp(1.8rem, 5vw, 3rem)", lineHeight: 1.15, color: "#fff", maxWidth: 700 }}>
             GenZ Revolution —<br/>
@@ -887,7 +887,7 @@ function Gallery() {
 // ════════════════════════════════════════════════════════════════
 function Contact() {
   return (
-    <section id="contact" style={{ padding: "100px 2rem", textAlign: "center" }}>
+    <section id="contact" style={{ padding: "100px 3rem", textAlign: "center" }}>
       <div style={{ maxWidth: 800, margin: "0 auto" }}>
         <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 11, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>
           07. CONTACT
