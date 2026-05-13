@@ -378,11 +378,14 @@ Overall, my journey so far has been shaped by curiosity, determination, and the 
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
             style={{
-              marginTop: "30px",
+              display: "block",
+              width: "100%",
+              marginTop: "2rem",
               padding: "12px 24px",
               background: "transparent",
               border: "1px solid #00d4ff",
               color: "#00d4ff",
+              textAlign: "center",
               fontFamily: "'Share Tech Mono', monospace",
               cursor: "pointer"
             }}
