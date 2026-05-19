@@ -10,6 +10,12 @@ const IMG_KYANJIN      = "/Photos/View From Kyanjin Ri.jpg";
 const IMG_TSERGO_TRAIL = "/Photos/Tsergori's Trail.jpg";
 const IMG_LANGTANG_COV = "/Photos/Langtang Lerung.jpg";
 const IMG_MNT          = "/Photos/Mountains.jpeg";
+const IMG_KARN_BANNER  = "/Photos/Rara.jpeg";
+const IMG_KARN_JUMLA1  = "/Photos/Jumla.jpg";
+const IMG_KARN_RARA3   = "/Photos/Rara-3.jpg";
+const IMG_KARN_JUMLA2  = "/Photos/Jumla-1.jpg";
+const IMG_KARN_THARU   = "/Photos/Tharu.jpg";
+
 
 const useScrollReveal = () => {
   const ref = useRef(null);
@@ -670,7 +676,8 @@ const DIARY_POSTS = {
       "Day 4: This was the most challenging and rewarding day. We started early at 4:30 AM, using flashlights to guide our way. After climbing for hours through steep, icy trails, slipping and pushing through exhaustion, we finally reached the summit of Tsergo Ri at around 11 AM. I used crampons for the first time in my life, carefully stepping over deep snow that covered everything in silence. Snow goggles were essential, not just for comfort but to protect from snow blindness. And then came the moment that erased every struggle. A full 360-degree mountain range unfolded around us—towering, snow-covered peaks stretching endlessly in every direction. The world felt completely still. No noise, no movement, only white silence and frozen grandeur. Massive white giants stood calmly around us, as if time itself had paused to admire them. The wind brushed past us sharply, yet even it felt distant in front of that vast stillness. We stood there surrounded by clouds below and peaks above, feeling like we were on the roof of the world. In that moment, words stopped making sense—the view wasn’t something to describe, it was something to feel.",
       "Descending was even harder. It took nearly 6 hours to go down, compared to 4 hours of ascent. By 4 PM, we returned to Kyanjin Gompa, had a simple chow chow soup, and immediately started heading back toward Langtang Valley. We reached around 7 PM, completely drained. My legs felt numb from exhaustion. After dinner, I soaked them in hot water, which helped slightly. We then spent the evening listening to stories from locals and guides about the mountains and past trekkers. Sleep that night came deeply and peacefully.",
       "Day 5: Due to the exhaustion from the previous day, we woke up a bit late. After breakfast, we started our descent toward Syabrubesi at around 7 AM. By 6 PM, we reached Syabrubesi. On the way, we bought small souvenirs for our families, though they felt slightly expensive. In the evening, we checked into a hotel, booked our bus back to Kathmandu, and spent time playing UNO with the group we had met earlier. It was simple but very enjoyable.",
-      "Day 6: We said our goodbyes to the group and left for Kathmandu at 7 AM. By evening, I reached home. Langtang was more than just a trek—it was a journey through changing worlds. From dense forests echoing with rivers to silent valleys shaped by loss and resilience, every step carried a story. The melting snow feeding endless streams reminded me how everything in the mountains is alive, constantly transforming. The cold that once made me shiver also taught me warmth of fire-lit rooms, shared meals, and strangers becoming companions. The mountains tested us physically, but more importantly, they reset something inside us. Langtang didn’t just show me landscapes and mountains, it showed me silence, struggle, and beauty in their purest form."
+      "Day 6: We said our goodbyes to the group and left for Kathmandu at 7 AM. By evening, I reached home.",
+      "Langtang was more than just a trek—it was a journey through changing worlds. From dense forests echoing with rivers to silent valleys shaped by loss and resilience, every step carried a story. The melting snow feeding endless streams reminded me how everything in the mountains is alive, constantly transforming. The cold that once made me shiver also taught me warmth of fire-lit rooms, shared meals, and strangers becoming companions. The mountains tested us physically, but more importantly, they reset something inside us. Langtang didn’t just show me landscapes and mountains, it showed me silence, struggle, and beauty in their purest form."
     ],
     images: [
       { src: "/Photos/View From Bamboo.jpg", caption: "The soothing dusk view from Bamboo alongside the river" },
@@ -679,17 +686,56 @@ const DIARY_POSTS = {
       { src: "/Photos/Mountains.jpeg", caption: "Prayer flags welcoming us amidst the peaceful Himalayan silence" }
     ],
     insertAfter: [1, 3, 4, 7] // View From Bamboo photo renders precisely after Day 1
+  },
+  karnali: {
+    title: "Koilabash to Karnali",
+    subtitle: "Unexplored, Untouched and Raw Nepal",
+    badge: "ROAD TRIP DIARY · 8 DAYS JOURNEY",
+    themeColor: "#a855f7",
+    bannerImg: IMG_KARN_BANNER,
+    summary: "After completing my second semester during the break, my cousin and I took off on a motorcycle adventure from Dang, riding all the way across pristine lakes, suspension bridges, and into the raw, untouched beauty of Karnali...",
+    paragraphs: [
+      "After completing my second semester during the semester break, I visited my hometown, Dang. After a few days, my cousin also joined me. He managed a motorcycle, and together we took off on our little adventure.",
+      "Our first destination was Purandhara, a famous waterfall located in the western part of Dang. The roaring water, cool breeze, and green surroundings made the place feel alive. On the same day, we continued further towards Hansapur, a place very special to our parents as they had spent most of their childhood there while completing their schooling. We even visited the same old school where they once studied. It felt nostalgic even for us, imagining the stories and memories connected to that place.",
+      "While returning, we entered a Tharu cultural museum where we explored various aspects of Tharu culture, their traditional houses, weapons, tools, clothing, and daily-life equipment. It was unique and gave us a glimpse into a lifestyle deeply rooted in tradition.",
+      "The next day, we requested our Fupaju to guide us to different places around the region. First, he took us to a lake called Jalbirey, located in Lamahi in the eastern part of Dang. Crossing the Rapti River through a suspension bridge nearly a kilometer long, we reached Fupaju’s ancestral home where we spent the night.",
+      "The following morning, before sunrise, we rushed towards Koilabash, the India–Nepal border located in Dang. We had to leave early because we planned to return to Ghorahi for lunch and then continue towards Surkhet later in the day. At Koilabash, we explored the border area and observed several ancient buildings that carried the history within their walls. After spending some time there, we returned to Ghorahi, had lunch, and around 12 PM headed towards Surkhet.",
+      "First, we caught a bus to Nepalgunj. After nearly three hours of travel, we reached Kohalpur at around 3 PM. We had some snacks, drank a refreshing glass of sugarcane juice, and continued our journey towards Surkhet. Until Kohalpur, I had already travelled once before, but Surkhet and everything beyond it were completely new to me. Since I love exploring unfamiliar places, every turn on the road felt exciting. At around 7 PM, we finally reached Surkhet where we met another Fupu and Fupaju, my cousin’s mom and dad.",
+      "The next morning, our Karnali journey officially began. Early in the morning, we left for Manma, Kalikot. Every moment on the road was breathtaking in a way words can barely capture. The highway followed the mighty Karnali River, flowing freely through deep gorges beneath towering hills. The roads themselves were an adventure, 50% pitched road, 40% off-road, and the remaining 10% felt like no road at all. Driving through those narrow single-lane mountain highways with the deep Karnali flowing below us was both thrilling and terrifying.",
+      "Crossing Surkhet and Dailekh, we finally reached Manma Bazaar at around 2 PM. Kalikot felt completely different from the rest of Nepal I had seen before. The entire settlement seemed to rest upon steep mountain slopes with the Karnali flowing far below. Looking at the topography, it almost felt as if one heavy landslide could sweep the entire hillside into the river, even though that’s impossible in reality. The geography itself looked dramatic and raw.",
+      "There, we tasted local fish from the Karnali River along with the famous local red rice called Marsi rice. The simplicity of the meal somehow made it even more delicious. After lunch, we explored Manma Bazaar further. The landscapes, the people, and the atmosphere all felt untouched and authentic. I also got the chance to witness a local marriage ceremony. It was very different from the modern city weddings we are used to seeing; simple, traditional, and deeply connected to the local culture.",
+      "The next day, we travelled towards Mugu. The road to Mugu was extremely rough; riding on it honestly felt like riding a horse because of the constant bumps and uneven tracks. Despite the difficult road, the beauty around us kept us energized. In Mugu, I explored local schools and villages, but one of the most memorable moments of the entire trip was dancing Deuda with the locals. Their energy, music, and togetherness made the experience unforgettable.",
+      "From there, we headed towards Rara Lake. On the way, we stopped at Talcha Airport, and fortunately, we even witnessed a plane landing and taking off. Since flights there are very limited and scheduled only once or twice a week, it felt like a rare moment to witness as a traveler.",
+      "A few kilometers before reaching Rara, we had to park our vehicle at an army barrack. From there, we chose horse riding to reach our hotel. The ride through the forest trails was incredibly fun and added a whole new experience to the journey. After nearly thirty minutes of horse riding, we finally reached Rara.",
+      "Rara was beyond beautiful, it felt unreal. The deep blue water reflected the surrounding green hills like a giant mirror. The calmness of the lake, combined with the cool breeze and complete silence of nature, created a peaceful atmosphere that words struggle to describe. The pine forests surrounding the lake added even more charm, while the distant mountains stood quietly like guardians of the region. No wonder people say, “Rara ki Apsara.” The phrase perfectly matches its heavenly beauty. That evening, around 7 PM, we reached our hotel, had dinner, and rested. The next day, we spent our time fully exploring Rara and enjoying boating on its crystal-clear water. Floating peacefully in the middle of Nepal’s largest lake while surrounded by untouched wilderness felt magical.",
+      "After exploring Rara, we headed towards another historic district ‘Jumla.’ Jumla carried a completely different atmosphere. The district felt rich with history, civilization, unique land structures, and traditional lifestyles. One thing that fascinated me most was the architecture of the houses there. The front yard of one house often served as the rooftop of the house below it. The houses appeared layered upon the hillsides in such a unique way that the entire settlement looked naturally woven into the mountains themselves. We spent a night in Jumla, explored the local markets, tasted local food, and bought souvenirs before finally returning to Surkhet. With that, our Karnali diary slowly came to an end.",
+      "Karnali is not just a destination; it is an emotion hidden within the mountains of Nepal. From the roaring Karnali River flowing fearlessly through deep gorges to the peaceful silence of Rara Lake, every place carried its own identity and beauty. The roads were rough, the journeys exhausting, yet every turn revealed landscapes so raw and untouched that all the struggles felt insignificant.",
+      "What makes Karnali truly special is its purity. The towering hills, scattered villages, ancient traditions, unique architecture, and warm-hearted locals together create a world completely different from the fast-moving cities. It feels unexplored, unfiltered, and deeply connected to nature. There are many beautiful places in Nepal, but Karnali possesses a rare kind of beauty; wild, silent, and honest. Some memories from Karnali can be written in words, but most of them can only be felt in the heart."
+    ],
+    images: [
+      { src: IMG_KARN_THARU,  caption: "" },
+      { src: IMG_KARN_JUMLA2, caption: "" },
+      { src: IMG_KARN_RARA3,  caption: "" },
+      { src: IMG_KARN_BANNER, caption: "" },
+      { src: IMG_KARN_JUMLA1, caption: "" }
+    ],
+    insertAfter: [2, 6, 11, 12, 13] // Perfectly timed after Tharu, Surkhet highway, horse riding arrival, Rara exploration, and Jumla entry paragraphs
   }
 };
 
+
 function ArticlePage({ articleKey = "genz", onClose }) {
   useEffect(() => { window.scrollTo(0, 0); }, [articleKey]);
+  
+  // State for tracking the full-screen lightbox image
+  const [activeLightboxImg, setActiveLightboxImg] = useState(null);
   
   const currentPost = DIARY_POSTS[articleKey] || DIARY_POSTS.genz;
   const { title, subtitle, badge, themeColor, bannerImg, paragraphs, images, insertAfter } = currentPost;
 
   return (
     <div style={{ background: "#060a16", minHeight: "100vh", paddingBottom: 80 }}>
+      {/* Article Navigation Bar */}
       <div style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(6,10,22,0.97)", backdropFilter: "blur(18px)", borderBottom: `1px solid ${themeColor}33`, padding: "0 2rem" }}>
         <div style={{ maxWidth: 860, margin: "0 auto", height: 58, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontFamily: "'Share Tech Mono', monospace", color: themeColor, fontSize: 11, letterSpacing: 3 }}>{badge}</span>
@@ -701,6 +747,7 @@ function ArticlePage({ articleKey = "genz", onClose }) {
         </div>
       </div>
 
+      {/* Hero Banner Banner */}
       <div style={{ position: "relative", height: 340, overflow: "hidden" }}>
         <img src={bannerImg} alt={title} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.35)" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 40%, #060a16 100%)" }} />
@@ -714,6 +761,7 @@ function ArticlePage({ articleKey = "genz", onClose }) {
         </div>
       </div>
 
+      {/* Article Core Layout Content */}
       <div style={{ maxWidth: 760, margin: "0 auto", padding: "60px 2rem 0" }}>
         {paragraphs.map((para, i) => {
           const imgIdx = insertAfter.indexOf(i);
@@ -732,11 +780,25 @@ function ArticlePage({ articleKey = "genz", onClose }) {
               </p>
               
               {imgIdx !== -1 && images[imgIdx] && (
-                <div style={{ margin: "36px 0 44px", borderRadius: 14, overflow: "hidden", border: `1px solid ${themeColor}40`, boxShadow: `0 8px 40px ${themeColor}14` }}>
-                  <img src={images[imgIdx].src} alt={images[imgIdx].caption} style={{ width: "100%", display: "block", objectFit: "cover", maxHeight: 460 }} />
+                <div 
+                  onClick={() => setActiveLightboxImg(images[imgIdx])}
+                  style={{ 
+                    margin: "36px 0 44px", 
+                    borderRadius: 14, 
+                    overflow: "hidden", 
+                    border: `1px solid ${themeColor}40`, 
+                    boxShadow: `0 8px 40px ${themeColor}14`,
+                    cursor: "zoom-in",
+                    transition: "transform 0.25s ease-in-out"
+                  }}
+                  className="blog-image-wrapper"
+                  onMouseEnter={e => e.currentTarget.style.transform = "scale(1.015)"}
+                  onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+                >
+                  <img src={images[imgIdx].src} alt={images[imgIdx].caption || "Blog snapshot"} style={{ width: "100%", display: "block", objectFit: "cover", maxHeight: 460 }} />
                   {images[imgIdx].caption && (
                     <div style={{ background: `${themeColor}0f`, padding: "14px 20px", fontFamily: "'Sora', sans-serif", fontSize: "0.82rem", color: "rgba(255,255,255,0.5)", fontStyle: "italic", lineHeight: 1.55 }}>
-                      {images[imgIdx].caption}
+                      {images[imgIdx].caption} <span style={{ float: "right", fontStyle: "normal", opacity: 0.6, fontSize: "0.75rem" }}>🔍 CLICK TO EXPAND</span>
                     </div>
                   )}
                 </div>
@@ -745,8 +807,9 @@ function ArticlePage({ articleKey = "genz", onClose }) {
           );
         })}
 
+        {/* Signature Element Footer */}
         <div style={{ marginTop: 56, paddingTop: 32, borderTop: "1px solid rgba(255,255,255,0.08)", display: "flex", alignItems: "center", gap: 16 }}>
-          <div style={{ width: 40, height: 40, borderRadius: "50%", background: `${themeColor}26`, border: `1px solid ${themeColor}4d`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>🇳🇵</div>
+          <div style={{ width: 40, height: 40, borderRadius: "50%", background: `${themeColor}1a`, border: `1px solid ${themeColor}33`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontFamily: "'Share Tech Mono', monospace", color: themeColor, fontWeight: "bold" }}>A</div>
           <div>
             <div style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: "0.9rem", color: "#fff" }}>Adhish Paudel</div>
             <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 10, color: "rgba(255,255,255,0.35)", letterSpacing: 1.5, marginTop: 3 }}>KATHMANDU, NEPAL</div>
@@ -759,10 +822,64 @@ function ArticlePage({ articleKey = "genz", onClose }) {
           ← BACK TO PORTFOLIO
         </button>
       </div>
+
+      {/* LIGHTBOX DIALOG OVERLAY VIEW */}
+      {activeLightboxImg && (
+        <div 
+          onClick={() => setActiveLightboxImg(null)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 9999,
+            background: "rgba(3, 5, 11, 0.95)",
+            backdropFilter: "blur(10px)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "40px 20px",
+            cursor: "zoom-out",
+            animation: "fadeIn 0.2s ease"
+          }}
+        >
+          {/* Top Close Control Label */}
+          <div style={{ position: "absolute", top: 20, right: 30, color: "rgba(255,255,255,0.5)", fontFamily: "'Share Tech Mono', monospace", fontSize: 12, letterSpacing: 2 }}>
+            CLOSE ×
+          </div>
+
+          {/* Full Screen Projected Frame */}
+          <img 
+            src={activeLightboxImg.src} 
+            alt="Expanded view" 
+            style={{
+              maxWidth: "90%",
+              maxHeight: "75vh",
+              objectFit: "contain",
+              borderRadius: "8px",
+              border: "1px solid rgba(255,255,255,0.1)",
+              boxShadow: "0 20px 80px rgba(0,0,0,0.7)"
+            }} 
+          />
+
+          {/* Caption Text Banner inside Lightbox */}
+          {activeLightboxImg.caption && (
+            <p style={{
+              marginTop: 20,
+              color: "rgba(255,255,255,0.8)",
+              fontFamily: "'Sora', sans-serif",
+              fontSize: "0.95rem",
+              textAlign: "center",
+              maxWidth: 600,
+              lineHeight: 1.6
+            }}>
+              {activeLightboxImg.caption}
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 }
-
 function Blog({ onOpenArticle }) {
   return (
     <section id="blog" style={{ padding: "100px 0" }}>
@@ -773,9 +890,9 @@ function Blog({ onOpenArticle }) {
 
       <div style={{ 
         display: "grid", 
-        gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", 
-        gap: "40px",
-        maxWidth: "1100px", 
+        gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", 
+        gap: "35px",
+        maxWidth: "1140px", 
         margin: "0 auto", 
         padding: "0 20px" 
       }}>
@@ -808,7 +925,7 @@ function Blog({ onOpenArticle }) {
                 e.currentTarget.style.boxShadow = `0 8px 40px ${item.themeColor}0f`;
               }}
             >
-              <div style={{ position: "relative", height: 200, overflow: "hidden" }}>
+              <div style={{ position: "relative", height: 190, overflow: "hidden" }}>
                 <img src={item.bannerImg} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.45)" }} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 40%, #0d1a2e 100%)" }} />
                 <div style={{ position: "absolute", top: 14, left: 14, background: `${item.themeColor}2e`, border: `1px solid ${item.themeColor}66`, borderRadius: 6, padding: "4px 10px", fontFamily: "'Share Tech Mono', monospace", fontSize: 9, color: item.themeColor, letterSpacing: 1.5 }}>
@@ -817,10 +934,10 @@ function Blog({ onOpenArticle }) {
               </div>
 
               <div style={{ padding: "24px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
-                <h3 style={{ color: "#fff", fontSize: "1.4rem", fontFamily: "'Sora', sans-serif", fontWeight: 800, margin: "0 0 6px 0" }}>
+                <h3 style={{ color: "#fff", fontSize: "1.35rem", fontFamily: "'Sora', sans-serif", fontWeight: 800, margin: "0 0 6px 0" }}>
                   {item.title}
                 </h3>
-                <h5 style={{ fontFamily: "'Share Tech Mono', monospace", color: item.themeColor, margin: "0 0 16px 0", fontSize: "0.9rem", fontWeight: 400 }}>
+                <h5 style={{ fontFamily: "'Share Tech Mono', monospace", color: item.themeColor, margin: "0 0 16px 0", fontSize: "0.88rem", fontWeight: 400 }}>
                   {item.subtitle}
                 </h5>
                 <p style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.7, fontFamily: "'Sora', sans-serif", fontSize: "0.92rem", textAlign: "justify", margin: "0 0 24px 0" }}>
@@ -829,7 +946,7 @@ function Blog({ onOpenArticle }) {
 
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto", paddingTop: "14px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                   <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                    <div style={{ width: 28, height: 28, borderRadius: "50%", background: `${item.themeColor}26`, border: `1px solid ${item.themeColor}4d`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>🇳🇵</div>
+                    <div style={{ width: 28, height: 28, borderRadius: "50%", background: `${item.themeColor}1a`, border: `1px solid ${item.themeColor}33`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontFamily: "'Share Tech Mono', monospace", color: item.themeColor, fontWeight: "bold" }}>A</div>
                     <span style={{ fontFamily: "'Sora', sans-serif", fontWeight: 600, fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>Adhish</span>
                   </div>
                   <div style={{ color: item.themeColor, fontSize: "0.82rem", fontFamily: "'Share Tech Mono', monospace", letterSpacing: 1, display: "flex", alignItems: "center", gap: 4 }}>
