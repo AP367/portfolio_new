@@ -4,7 +4,12 @@ const IMG_BLOOD   = "/Photos/revolution-blood.jpg";
 const IMG_PROTEST = "/Photos/revolution-protest.png";
 const IMG_FIRE    = "/Photos/revolution-fire.jpg";
 const IMG_CLASH   = "/Photos/revolution-clash.png";
-const IMG_PROFILE = "/Photos/Photo.png"; // Your new profile photo
+const IMG_PROFILE = "/Photos/Photo.png"; 
+const IMG_BAMBOO       = "/Photos/View From Bamboo.jpg";
+const IMG_KYANJIN      = "/Photos/View From Kyanjin Ri.jpg";
+const IMG_TSERGO_TRAIL = "/Photos/Tsergori's Trail.jpg";
+const IMG_LANGTANG_COV = "/Photos/Langtang Lerung.jpg";
+const IMG_MNT          = "/Photos/Mountains.jpeg";
 
 const useScrollReveal = () => {
   const ref = useRef(null);
@@ -617,194 +622,228 @@ function Academic() {
 // ════════════════════════════════════════════════════════════════
 // BLOG ARTICLE PAGE — GenZ Revolution
 // ════════════════════════════════════════════════════════════════
-function ArticlePage({ onClose }) {
-  useEffect(() => { window.scrollTo(0, 0); }, []);
- 
-  const paragraphs = [
-    "There are some days in life that stay with you forever. One such period in my life is called the 'GenZ Revolution.' It was a time of intense protests, political uncertainty, and emotional chaos that affected everyone, including students like me who were simply trying to continue with normal life.",
-    "It all started around the time when my semester exams were going on. I remember it clearly because my Python exam was scheduled just two days after Bhadra 23. I had been preparing seriously, revising topics, and practicing coding problems. Like any other student, my world at that time was limited to notes, books, and exam pressure. But everything suddenly shifted when news of nationwide protests began spreading rapidly through social media, where many young people were actively sharing updates and opinions.",
-    "At first, it felt like something happening far away from my personal life. But very quickly, it became impossible to ignore. The situation escalated, and the atmosphere in the country started becoming tense. There were reports of large-scale protests involving students and young people, and political pressure was building at the national level.",
-    "For someone like me, who was in the middle of exams, it became extremely difficult to concentrate. One of the most disturbing things reported during the first day of protest was about incidents near New Baneshwor, in front of the parliament area. The police started firing gunshots. News of people being shot dead and injured began spreading like wildfire, and soon the situation became even more violent, uncontrollable, and deeply alarming. For many of us, it was the first moment when we realized this was no longer just a peaceful protest — it had turned into something far more serious.",
-    "Because of the increasing instability, our exam schedule was eventually postponed. That moment gave a strange mix of relief and anxiety — relief because exams were delayed, but anxiety because the situation outside was worsening rapidly.",
-    "In the next day that followed, the situation escalated further. Many political leaders' houses were burned, and by noon, the then Prime Minister KP Sharma Oli resigned from his post. However, after the PM's resignation the situation still did not come under control. I remember seeing heavy smoke rising from different parts of the city, especially around important government and administrative areas affected during the protests.",
-    "One of the most shocking visuals for many people, including me, was seeing reports and images of key institutions such as Singha Durbar and the Supreme Court being damaged or burned during the chaos. Even more disturbing was the news that thousands of prisoners broke out of jail during the unrest, creating a serious security crisis across the country.",
-    "For a while, there was almost no visible control from security forces in many areas. The streets felt unsafe, and uncertainty increased every hour. However, later that evening, the situation took a critical turn when the Nepal Army, under the leadership of Chief Ashok Raj Sigdel, addressed the nation and announced that the army was taking responsibility for national security. That announcement finally brought a sense of relief and stability after an extremely disturbing day.",
-    "During this entire time, social media played a very powerful role. Platforms like Discord, Facebook, Reddit and others were filled with live updates, emotional reactions, and debates. Some people expressed anger, some viewed it as a call for reform, while others were simply trying to understand what was happening in real time. Information spread faster than ever, and emotions spread even faster.",
-    "Slowly, after several tense days, the situation began to stabilize. The presence of security forces helped bring control back to the streets, and restrictions gradually started easing. There was a sense of relief returning, even though the emotional impact of everything that had happened still remained. Normal life did not return instantly, but the intensity of the crisis slowly began to decrease.",
-    "During the transitional phase, discussions also emerged around forming an interim leadership, and Sushila Karki was widely mentioned in public discourse as a potential interim Prime Minister figure during the political transition period. This reflected how uncertain and fluid the political situation had become during that time.",
-    "In the end, the GenZ Revolution remains one of the most intense chapters of my life — as I had never witnessed anything like that before.",
-  ];
- 
-  const images = [
-    { src: IMG_BLOOD,   caption: "" },
-    { src: IMG_CLASH,   caption: "" },
-    { src: IMG_FIRE,    caption: "" },
-    { src: IMG_PROTEST, caption: "" },
-  ];
- 
-  const insertAfter = [2, 5, 8, 11]; // paragraph indices after which to insert images
- 
-  const articleStyle = {
-    fontFamily: "'Sora', sans-serif",
-    fontSize: "1.05rem",
-    lineHeight: 1.95,
-    color: "rgba(255,255,255,0.8)",
-    textAlign: "justify",
-    marginBottom: 24,
-  };
- 
+// ════════════════════════════════════════════════════════════════
+// DYNAMIC ARTICLE DATA LIST
+// ════════════════════════════════════════════════════════════════
+const DIARY_POSTS = {
+  genz: {
+    title: "GenZ Revolution",
+    subtitle: "A Day I Will Never Forget",
+    badge: "MEMORABLE DIARY · 2025",
+    themeColor: "#ff4444",
+    bannerImg: "/Photos/revolution-fire.jpg",
+    summary: "There are some days in life that stay with you forever. It all started when my semester exams were going on — then news of nationwide protests spread rapidly, gunshots were fired near parliament, and everything I knew about normal life shattered overnight...",
+    paragraphs: [
+      "There are some days in life that stay with you forever. One such period in my life is called the 'GenZ Revolution.' It was a time of intense protests, political uncertainty, and emotional chaos that affected everyone, including students like me who were simply trying to continue with normal life.",
+      "It all started around the time when my semester exams were going on. I remember it clearly because my Python exam was scheduled just two days after Bhadra 23. I had been preparing seriously, revising topics, and practicing coding problems. Like any other student, my world at that time was limited to notes, books, and exam pressure. But everything suddenly shifted when news of nationwide protests began spreading rapidly through social media, where many young people were actively sharing updates and opinions.",
+      "At first, it felt like something happening far away from my personal life. But very quickly, it became impossible to ignore. The situation escalated, and the atmosphere in the country started becoming tense. There were reports of large-scale protests involving students and young people, and political pressure was building at the national level.",
+      "For someone like me, who was in the middle of exams, it became extremely difficult to concentrate. One of the most disturbing things reported during the first day of protest was about incidents near New Baneshwor, in front of the parliament area. The police started firing gunshots. News of people being shot dead and injured began spreading like wildfire, and soon the situation became even more violent, uncontrollable, and deeply alarming. For many of us, it was the first moment when we realized this was no longer just a peaceful protest — it had turned into something far more serious.",
+      "Because of the increasing instability, our exam schedule was eventually postponed. That moment gave a strange mix of relief and anxiety — relief because exams were delayed, but anxiety because the situation outside was worsening rapidly.",
+      "In the next day that followed, the situation escalated further. Many political leaders' houses were burned, and by noon, the then Prime Minister KP Sharma Oli resigned from his post. However, after the PM's resignation the situation still did not come under control. I remember seeing heavy smoke rising from different parts of the city, especially around important government and administrative areas affected during the protests.",
+      "One of the most shocking visuals for many people, including me, was seeing reports and images of key institutions such as Singha Durbar and the Supreme Court being damaged or burned during the chaos. Even more disturbing was the news that thousands of prisoners broke out of jail during the unrest, creating a serious security crisis across the country.",
+      "For a while, there was almost no visible control from security forces in many areas. The streets felt unsafe, and uncertainty increased every hour. However, later that evening, the situation took a critical turn when the Nepal Army, under the leadership of Chief Ashok Raj Sigdel, addressed the nation and announced that the army was taking responsibility for national security. That announcement finally brought a sense of relief and stability after an extremely disturbing day.",
+      "During this entire time, social media played a very powerful role. Platforms like Discord, Facebook, Reddit and others were filled with live updates, emotional reactions, and debates. Some people expressed anger, some viewed it as a call for reform, while others were simply trying to understand what was happening in real time. Information spread faster than ever, and emotions spread even faster.",
+      "Slowly, after several tense days, the situation began to stabilize. The presence of security forces helped bring control back to the streets, and restrictions gradually started easing. There was a sense of relief returning, even though the emotional impact of everything that had happened still remained. Normal life did not return instantly, but the intensity of the crisis slowly began to decrease.",
+      "During the transitional phase, discussions also emerged around forming an interim leadership, and Sushila Karki was widely mentioned in public discourse as a potential interim Prime Minister figure during the political transition period. This reflected how uncertain and fluid the political situation had become during that time.",
+      "In the end, the GenZ Revolution remains one of the most intense chapters of my life — as I had never witnessed anything like that before."
+    ],
+    images: [
+      { src: "/Photos/revolution-blood.jpg", caption: "" },
+      { src: "/Photos/revolution-clash.png", caption: "" },
+      { src: "/Photos/revolution-fire.jpg", caption: "" },
+      { src: "/Photos/revolution-protest.png", caption: "" }
+    ],
+    insertAfter: [2, 5, 8, 11]
+  },
+  langtang: {
+    title: "Langtang Diaries",
+    subtitle: "A Journey Through Silence, Struggle, and Grandeur",
+    badge: "TRAVEL DIARY · 6 DAYS TREK",
+    themeColor: "#00d4ff",
+    bannerImg: "/Photos/Langtang Lerung.jpg",
+    summary: "Initially, I had planned a Pokhara–Chitwan trip during the semester break with some campus friends. However, as some of them backed out, I changed my plan and decided to go on a trek instead. First came the destination—Langtang it was...",
+    paragraphs: [
+      "Initially, I had planned a Pokhara–Chitwan trip during the semester break with some campus friends. However, as some of them backed out, I changed my plan and decided to go on a trek instead. First came the destination—Langtang it was. Then came the bigger question: with whom? I asked a cousin, but he was busy and couldn’t join. Later, I remembered another cousin who was also on vacation, and fortunately, he accepted the proposal. Now everything was set—the destination, the partner, and the date: just two days away. It was time to gather gear and finalize the plan.",
+      "Day 1: At 6 AM, we left Machhapokhari bus park for Syabrubesi. By around 2 PM, our Langtang trek officially began. There was a small twist at the very start—my trekking stick broke into two pieces. Luckily, a local shop fixed it, and we continued. By 6 PM, we reached Bamboo. Our pace had been good. We shared the lodge with KU MBBS students, and the evening turned into an unexpected but memorable exchange of stories between engineering and medical students. It was fun, simple, and genuinely refreshing. After dinner, we went to sleep. Bamboo, located beside a fast-flowing river, offered a constant soothing sound throughout the night. It felt peaceful, almost healing.",
+      "Day 2: We woke up early at around 4:30 AM. This was a long and demanding day as we had to reach Langtang Valley. After breakfast, we started trekking at 5:15 AM and bid farewell to the KU group. What followed was an exhausting but beautiful 14-hour walk through forests, rivers, and changing landscapes. Along the way, we also saw the devastating landslide debris from the 2015 earthquake, which had wiped out the old Langtang village. Hundreds of lives were lost. A new settlement now stands a short distance away, rebuilt with resilience. In the afternoon, we finally reached Langtang Valley. I took a hot shower, but the moment I stepped out, the cold hit so hard that I had to wear every layer I had. The temperature was around -25°C. Later, the hotel lit a fire in the dining area, and that warmth slowly brought life back into my frozen body. After lunch, we rested and slept.",
+      "Day 3: We woke up again at 4:45 AM. Our legs were slightly sore, but the excitement pushed us forward. After breakfast, we headed toward Kyanjin Gompa, the final village of the trek. By around 12 PM, we reached it at an altitude of nearly 3,800 meters. After lunch and rest, we planned a hike to Kyanjin Ri. There are two peaks—Kyanjin Ri I and II. The climb was intense. We gained around 1,000 meters in just an hour, battling steep trails and strong winds that made every step feel uncertain. The view, however, was worth everything. We had initially thought of going to Tsergo Ri (5,000 m), but after seeing the difficulty, we hesitated. Luckily, we met a group of four trekkers—three friends and one solo traveler who had joined them. We decided to team up and attempt it together the next day. That night, the sky was unforgettable. Countless stars, clear constellations, and even a shooting star—it felt surreal. No description can truly capture it.",
+      "Day 4: This was the most challenging and rewarding day. We started early at 4:30 AM, using flashlights to guide our way. After climbing for hours through steep, icy trails, slipping and pushing through exhaustion, we finally reached the summit of Tsergo Ri at around 11 AM. I used crampons for the first time in my life, carefully stepping over deep snow that covered everything in silence. Snow goggles were essential, not just for comfort but to protect from snow blindness. And then came the moment that erased every struggle. A full 360-degree mountain range unfolded around us—towering, snow-covered peaks stretching endlessly in every direction. The world felt completely still. No noise, no movement, only white silence and frozen grandeur. Massive white giants stood calmly around us, as if time itself had paused to admire them. The wind brushed past us sharply, yet even it felt distant in front of that vast stillness. We stood there surrounded by clouds below and peaks above, feeling like we were on the roof of the world. In that moment, words stopped making sense—the view wasn’t something to describe, it was something to feel.",
+      "Descending was even harder. It took nearly 6 hours to go down, compared to 4 hours of ascent. By 4 PM, we returned to Kyanjin Gompa, had a simple chow chow soup, and immediately started heading back toward Langtang Valley. We reached around 7 PM, completely drained. My legs felt numb from exhaustion. After dinner, I soaked them in hot water, which helped slightly. We then spent the evening listening to stories from locals and guides about the mountains and past trekkers. Sleep that night came deeply and peacefully.",
+      "Day 5: Due to the exhaustion from the previous day, we woke up a bit late. After breakfast, we started our descent toward Syabrubesi at around 7 AM. By 6 PM, we reached Syabrubesi. On the way, we bought small souvenirs for our families, though they felt slightly expensive. In the evening, we checked into a hotel, booked our bus back to Kathmandu, and spent time playing UNO with the group we had met earlier. It was simple but very enjoyable.",
+      "Day 6: We said our goodbyes to the group and left for Kathmandu at 7 AM. By evening, I reached home. Langtang was more than just a trek—it was a journey through changing worlds. From dense forests echoing with rivers to silent valleys shaped by loss and resilience, every step carried a story. The melting snow feeding endless streams reminded me how everything in the mountains is alive, constantly transforming. The cold that once made me shiver also taught me warmth of fire-lit rooms, shared meals, and strangers becoming companions. The mountains tested us physically, but more importantly, they reset something inside us. Langtang didn’t just show me landscapes and mountains, it showed me silence, struggle, and beauty in their purest form."
+    ],
+    images: [
+      { src: "/Photos/View From Bamboo.jpg", caption: "The soothing dusk view from Bamboo alongside the river" },
+      { src: "/Photos/View From Kyanjin Ri.jpg", caption: "Panoramas opening up high on the trails of Kyanjin Ri" },
+      { src: "/Photos/Tsergori's Trail.jpg", caption: "Traversing through layers of heavy mountain snow near the summit" },
+      { src: "/Photos/Mountains.jpeg", caption: "Prayer flags welcoming us amidst the peaceful Himalayan silence" }
+    ],
+    insertAfter: [1, 3, 4, 7] // View From Bamboo photo renders precisely after Day 1
+  }
+};
+
+function ArticlePage({ articleKey = "genz", onClose }) {
+  useEffect(() => { window.scrollTo(0, 0); }, [articleKey]);
+  
+  const currentPost = DIARY_POSTS[articleKey] || DIARY_POSTS.genz;
+  const { title, subtitle, badge, themeColor, bannerImg, paragraphs, images, insertAfter } = currentPost;
+
   return (
     <div style={{ background: "#060a16", minHeight: "100vh", paddingBottom: 80 }}>
-      {/* Top bar */}
-      <div style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(6,10,22,0.97)", backdropFilter: "blur(18px)", borderBottom: "1px solid rgba(255,68,68,0.2)", padding: "0 2rem" }}>
+      <div style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(6,10,22,0.97)", backdropFilter: "blur(18px)", borderBottom: `1px solid ${themeColor}33`, padding: "0 2rem" }}>
         <div style={{ maxWidth: 860, margin: "0 auto", height: 58, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <span style={{ fontFamily: "'Share Tech Mono', monospace", color: "#ff4444", fontSize: 11, letterSpacing: 3 }}>BLOG / MEMORABLE DIARY</span>
+          <span style={{ fontFamily: "'Share Tech Mono', monospace", color: themeColor, fontSize: 11, letterSpacing: 3 }}>{badge}</span>
           <button onClick={onClose} style={{ background: "none", border: "1px solid rgba(255,255,255,0.2)", color: "rgba(255,255,255,0.6)", fontFamily: "'Share Tech Mono', monospace", fontSize: 11, letterSpacing: 1.5, padding: "7px 16px", borderRadius: 6, cursor: "pointer", transition: "all 0.2s" }}
-            onMouseEnter={e => { e.target.style.borderColor = "#ff4444"; e.target.style.color = "#ff4444"; }}
+            onMouseEnter={e => { e.target.style.borderColor = themeColor; e.target.style.color = themeColor; }}
             onMouseLeave={e => { e.target.style.borderColor = "rgba(255,255,255,0.2)"; e.target.style.color = "rgba(255,255,255,0.6)"; }}>
             ← BACK
           </button>
         </div>
       </div>
- 
-      {/* Hero banner */}
+
       <div style={{ position: "relative", height: 340, overflow: "hidden" }}>
-        <img src={IMG_FIRE} alt="GenZ Revolution" style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.35)" }} />
+        <img src={bannerImg} alt={title} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.35)" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 40%, #060a16 100%)" }} />
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "0 3rem", textAlign: "center" }}>
-          <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#ff4444", fontSize: 11, letterSpacing: 4, marginBottom: 16, opacity: 0.9 }}>MEMORABLE DIARY · 2025</div>
+          <div style={{ fontFamily: "'Share Tech Mono', monospace", color: themeColor, fontSize: 11, letterSpacing: 4, marginBottom: 16, opacity: 0.9 }}>{badge}</div>
           <h1 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 900, fontSize: "clamp(1.8rem, 5vw, 3rem)", lineHeight: 1.15, color: "#fff", maxWidth: 700 }}>
-            GenZ Revolution —<br/>
-            <span style={{ color: "#ff4444" }}>A Day I Will Never Forget</span>
+            {title} —<br/>
+            <span style={{ color: themeColor }}>{subtitle}</span>
           </h1>
           <div style={{ marginTop: 20, fontFamily: "'Share Tech Mono', monospace", fontSize: 11, color: "rgba(255,255,255,0.45)", letterSpacing: 2 }}>BY ADHISH PAUDEL</div>
         </div>
       </div>
- 
-      {/* Article body */}
+
       <div style={{ maxWidth: 760, margin: "0 auto", padding: "60px 2rem 0" }}>
         {paragraphs.map((para, i) => {
           const imgIdx = insertAfter.indexOf(i);
+          const isDayHeader = para.startsWith("Day 1") || para.startsWith("Day 2") || para.startsWith("Day 3") || para.startsWith("Day 4") || para.startsWith("Day 5") || para.startsWith("Day 6");
+
           return (
             <div key={i}>
-              <p style={articleStyle}>{para}</p>
-              {imgIdx !== -1 && (
-                <div style={{ margin: "36px 0 44px", borderRadius: 14, overflow: "hidden", border: "1px solid rgba(255,68,68,0.25)", boxShadow: "0 8px 40px rgba(255,68,68,0.08)" }}>
+              {isDayHeader ? (
+                <h3 style={{ fontFamily: "'Share Tech Mono', monospace", color: themeColor, fontSize: "1.4rem", marginTop: 40, marginBottom: 15, borderBottom: `1px solid ${themeColor}1a`, paddingBottom: 6 }}>
+                  {para.split(":")[0]}
+                </h3>
+              ) : null}
+              
+              <p style={{ fontFamily: "'Sora', sans-serif", fontSize: "1.05rem", lineHeight: 1.95, color: "rgba(255,255,255,0.8)", textAlign: "justify", marginBottom: 24 }}>
+                {isDayHeader ? para.substring(para.indexOf(":") + 1).trim() : para}
+              </p>
+              
+              {imgIdx !== -1 && images[imgIdx] && (
+                <div style={{ margin: "36px 0 44px", borderRadius: 14, overflow: "hidden", border: `1px solid ${themeColor}40`, boxShadow: `0 8px 40px ${themeColor}14` }}>
                   <img src={images[imgIdx].src} alt={images[imgIdx].caption} style={{ width: "100%", display: "block", objectFit: "cover", maxHeight: 460 }} />
-                  <div style={{ background: "rgba(255,68,68,0.06)", padding: "14px 20px", fontFamily: "'Sora', sans-serif", fontSize: "0.82rem", color: "rgba(255,255,255,0.5)", fontStyle: "italic", lineHeight: 1.55 }}>
-                    {images[imgIdx].caption}
-                  </div>
+                  {images[imgIdx].caption && (
+                    <div style={{ background: `${themeColor}0f`, padding: "14px 20px", fontFamily: "'Sora', sans-serif", fontSize: "0.82rem", color: "rgba(255,255,255,0.5)", fontStyle: "italic", lineHeight: 1.55 }}>
+                      {images[imgIdx].caption}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
           );
         })}
- 
-        {/* Closing signature */}
+
         <div style={{ marginTop: 56, paddingTop: 32, borderTop: "1px solid rgba(255,255,255,0.08)", display: "flex", alignItems: "center", gap: 16 }}>
-          <div style={{ width: 40, height: 40, borderRadius: "50%", background: "rgba(255,68,68,0.15)", border: "1px solid rgba(255,68,68,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>🇳🇵</div>
+          <div style={{ width: 40, height: 40, borderRadius: "50%", background: `${themeColor}26`, border: `1px solid ${themeColor}4d`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>🇳🇵</div>
           <div>
             <div style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: "0.9rem", color: "#fff" }}>Adhish Paudel</div>
-            <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 10, color: "rgba(255,255,255,0.35)", letterSpacing: 1.5, marginTop: 3 }}>KATHMANDU, NEPAL · 2025</div>
+            <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 10, color: "rgba(255,255,255,0.35)", letterSpacing: 1.5, marginTop: 3 }}>KATHMANDU, NEPAL</div>
           </div>
         </div>
- 
-        <button onClick={onClose} style={{ marginTop: 48, display: "block", background: "rgba(255,68,68,0.08)", border: "1px solid rgba(255,68,68,0.3)", color: "#ff4444", fontFamily: "'Share Tech Mono', monospace", fontSize: 11, letterSpacing: 2, padding: "12px 28px", borderRadius: 8, cursor: "pointer", transition: "all 0.2s" }}
-          onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,68,68,0.18)"; }}
-          onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,68,68,0.08)"; }}>
+
+        <button onClick={onClose} style={{ marginTop: 48, display: "block", background: `${themeColor}14`, border: `1px solid ${themeColor}4d`, color: themeColor, fontFamily: "'Share Tech Mono', monospace", fontSize: 11, letterSpacing: 2, padding: "12px 28px", borderRadius: 8, cursor: "pointer", transition: "all 0.2s" }}
+          onMouseEnter={e => { e.currentTarget.style.background = `${themeColor}2e`; }}
+          onMouseLeave={e => { e.currentTarget.style.background = `${themeColor}14`; }}>
           ← BACK TO PORTFOLIO
         </button>
       </div>
     </div>
   );
 }
- 
-// ════════════════════════════════════════════════════════════════
-// BLOG SECTION (main portfolio page)
-// ════════════════════════════════════════════════════════════════
+
 function Blog({ onOpenArticle }) {
   return (
     <section id="blog" style={{ padding: "100px 0" }}>
       <div style={{ textAlign: "center", marginBottom: "60px" }}>
-                  <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 18, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>05.Article </div>
-        <h2 style={{ fontSize: "2.5rem", fontWeight: 900, color: "white" }}>Latest <span style={{ color: "#00d4ff" }}>Writing</span></h2>
+        <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 18, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>05. Notebook & Diaries</div>
+        <h2 style={{ fontSize: "2.5rem", fontWeight: 900, color: "white" }}>Latest <span style={{ color: "#00d4ff" }}>Writings</span></h2>
       </div>
- 
-      <div
-        onClick={onOpenArticle}
-        style={{
-          background: "#0d1a2e",
-          borderRadius: "16px",
-          cursor: "pointer",
-          border: "1px solid rgba(255,68,68,0.18)",
-          transition: "all 0.35s ease",
-          maxWidth: "820px",
-          margin: "0 auto",
-          overflow: "hidden",
-          boxShadow: "0 8px 40px rgba(255,68,68,0.06)",
-        }}
-        onMouseOver={(e) => {
-          e.currentTarget.style.transform = "translateY(-8px)";
-          e.currentTarget.style.borderColor = "rgba(255,68,68,0.55)";
-          e.currentTarget.style.boxShadow = "0 16px 60px rgba(255,68,68,0.14)";
-        }}
-        onMouseOut={(e) => {
-          e.currentTarget.style.transform = "translateY(0)";
-          e.currentTarget.style.borderColor = "rgba(255,68,68,0.18)";
-          e.currentTarget.style.boxShadow = "0 8px 40px rgba(255,68,68,0.06)";
-        }}
-      >
-        {/* Hero background — Singha Durbar fire */}
-        <div style={{ position: "relative", height: 240, overflow: "hidden" }}>
-          <img
-            src={IMG_FIRE}
-            alt="GenZ Revolution — Singha Durbar on fire"
-            style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.38)" }}
-          />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 40%, #0d1a2e 100%)" }} />
- 
-          {/* Tag badge */}
-          <div style={{ position: "absolute", top: 18, left: 18, background: "rgba(255,68,68,0.18)", border: "1px solid rgba(255,68,68,0.4)", borderRadius: 6, padding: "4px 12px", fontFamily: "'Share Tech Mono', monospace", fontSize: 10, color: "#ff6666", letterSpacing: 2 }}>
-            MEMORABLE DIARY · 2025
-          </div>
- 
-          {/* Centered title overlay */}
-          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 24px", textAlign: "center" }}>
-            <h3 style={{ color: "#fff", fontSize: "clamp(1.2rem, 3vw, 1.7rem)", fontFamily: "'Sora', sans-serif", fontWeight: 900, lineHeight: 1.25, textShadow: "0 2px 20px rgba(0,0,0,0.8)" }}>
-              GenZ Revolution —{" "}
-              <span style={{ color: "#ff4444" }}>A Day I Will Never Forget</span>
-            </h3>
-          </div>
-        </div>
- 
-        {/* Card body */}
-        <div style={{ padding: "26px 28px 28px" }}>
- 
-         
- 
-          <p style={{ color: "rgba(255,255,255,0.62)", lineHeight: 1.75, fontFamily: "'Sora', sans-serif", fontSize: "0.95rem", marginBottom: 22 }}>
-            There are some days in life that stay with you forever. It all started when my semester exams were going on — then news of nationwide protests spread rapidly, gunshots were fired near parliament, and everything I knew about normal life shattered overnight...
-          </p>
- 
-          {/* Meta row */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
-            <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-              <div style={{ width: 32, height: 32, borderRadius: "50%", background: "rgba(255,68,68,0.15)", border: "1px solid rgba(255,68,68,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14 }}>🇳🇵</div>
-              <div>
-                <div style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: "0.82rem", color: "#fff" }}>Adhish Paudel</div>
-                <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 9, color: "rgba(255,255,255,0.35)", letterSpacing: 1.5, marginTop: 2 }}>KATHMANDU, NEPAL</div>
+
+      <div style={{ 
+        display: "grid", 
+        gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", 
+        gap: "40px",
+        maxWidth: "1100px", 
+        margin: "0 auto", 
+        padding: "0 20px" 
+      }}>
+        {Object.keys(DIARY_POSTS).map((key) => {
+          const item = DIARY_POSTS[key];
+          return (
+            <div
+              key={key}
+              onClick={() => onOpenArticle(key)}
+              style={{
+                background: "#0d1a2e",
+                borderRadius: "16px",
+                cursor: "pointer",
+                border: `1px solid ${item.themeColor}30`,
+                transition: "all 0.35s ease",
+                overflow: "hidden",
+                boxShadow: `0 8px 40px ${item.themeColor}0f`,
+                display: "flex",
+                flexDirection: "column",
+                height: "100%"
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "translateY(-8px)";
+                e.currentTarget.style.borderColor = item.themeColor;
+                e.currentTarget.style.boxShadow = `0 16px 60px ${item.themeColor}24`;
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.borderColor = `${item.themeColor}30`;
+                e.currentTarget.style.boxShadow = `0 8px 40px ${item.themeColor}0f`;
+              }}
+            >
+              <div style={{ position: "relative", height: 200, overflow: "hidden" }}>
+                <img src={item.bannerImg} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.45)" }} />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 40%, #0d1a2e 100%)" }} />
+                <div style={{ position: "absolute", top: 14, left: 14, background: `${item.themeColor}2e`, border: `1px solid ${item.themeColor}66`, borderRadius: 6, padding: "4px 10px", fontFamily: "'Share Tech Mono', monospace", fontSize: 9, color: item.themeColor, letterSpacing: 1.5 }}>
+                  {item.badge}
+                </div>
+              </div>
+
+              <div style={{ padding: "24px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
+                <h3 style={{ color: "#fff", fontSize: "1.4rem", fontFamily: "'Sora', sans-serif", fontWeight: 800, margin: "0 0 6px 0" }}>
+                  {item.title}
+                </h3>
+                <h5 style={{ fontFamily: "'Share Tech Mono', monospace", color: item.themeColor, margin: "0 0 16px 0", fontSize: "0.9rem", fontWeight: 400 }}>
+                  {item.subtitle}
+                </h5>
+                <p style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.7, fontFamily: "'Sora', sans-serif", fontSize: "0.92rem", textAlign: "justify", margin: "0 0 24px 0" }}>
+                  {item.summary}
+                </p>
+
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto", paddingTop: "14px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+                  <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+                    <div style={{ width: 28, height: 28, borderRadius: "50%", background: `${item.themeColor}26`, border: `1px solid ${item.themeColor}4d`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>🇳🇵</div>
+                    <span style={{ fontFamily: "'Sora', sans-serif", fontWeight: 600, fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>Adhish</span>
+                  </div>
+                  <div style={{ color: item.themeColor, fontSize: "0.82rem", fontFamily: "'Share Tech Mono', monospace", letterSpacing: 1, display: "flex", alignItems: "center", gap: 4 }}>
+                    READ FULL ARTICLE <span>→</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div style={{ color: "#ff4444", fontSize: "0.88rem", fontFamily: "'Share Tech Mono', monospace", letterSpacing: 1.5, display: "flex", alignItems: "center", gap: 6 }}>
-              READ FULL ARTICLE <span style={{ fontSize: 16 }}>→</span>
-            </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </section>
   );
 }
-
 // ════════════════════════════════════════════════════════════════
 // GALLERY
 // ════════════════════════════════════════════════════════════════
@@ -1160,7 +1199,10 @@ function Footer() {
 // ════════════════════════════════════════════════════════════════
 export default function App() {
   const [activeSection, setActiveSection] = useState("");
-  const [articleOpen, setArticleOpen] = useState(false);
+  
+  // Changed from a boolean to a key selector ('null', 'genz', or 'langtang')
+  const [articleKey, setArticleKey] = useState(null);
+
   useEffect(() => {
     const handleScroll = () => {
       const sects = NAV_LINKS.map(l => ({ id: l.toLowerCase(), el: document.getElementById(l.toLowerCase()) }));
@@ -1246,21 +1288,35 @@ export default function App() {
           }
         }
       `}</style>
-      {articleOpen ? (
-        <ArticlePage onClose={() => { setArticleOpen(false); setTimeout(() => { document.getElementById("blog")?.scrollIntoView({ behavior: "smooth" }); }, 100); }} />
+      
+      {/* Dynamic Conditional Display Toggle */}
+      {articleKey ? (
+        <ArticlePage 
+          articleKey={articleKey} 
+          onClose={() => { 
+            setArticleKey(null); 
+            setTimeout(() => { document.getElementById("blog")?.scrollIntoView({ behavior: "smooth" }); }, 100); 
+          }} 
+        />
       ) : (
-      <div style={{ background: "#060a16", minHeight: "100vh", paddingTop: "70px" }}>
-        <Navbar active={activeSection} />
-        <Hero />
-        <About articleOpen={articleOpen} setArticleOpen={setArticleOpen} />
-        <Skills />
-        <Projects />
-        <Academic />
-        <Blog onOpenArticle={() => setArticleOpen(true)} />
-        <Gallery />
-        <Contact />
-        <Footer />
-      </div>
+        <div style={{ background: "#060a16", minHeight: "100vh", paddingTop: "70px" }}>
+          <Navbar active={activeSection} />
+          <Hero />
+          
+          {/* Kept your about section parameters safe */}
+          <About articleOpen={!!articleKey} setArticleOpen={(val) => setArticleKey(val ? "genz" : null)} />
+          
+          <Skills />
+          <Projects />
+          <Academic />
+          
+          {/* Dynamically captures whether you selected 'genz' or 'langtang' from the matrix cards */}
+          <Blog onOpenArticle={(key) => setArticleKey(key)} />
+          
+          <Gallery />
+          <Contact />
+          <Footer />
+        </div>
       )}
     </>
   );
