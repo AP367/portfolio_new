@@ -188,18 +188,18 @@ function Navbar({ active }) {
     }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 70 }}>
         
-        {/* Adhish Paudel Branding & Domain Link */}
-        <a 
-          href="https://adhishpaudel.com.np" 
-          style={{ 
-            fontFamily: "'Sora', sans-serif", 
-            fontWeight: 800, 
-            fontSize: "1.3rem", 
-            color: "#00d4ff", 
-            textDecoration: "none"
+        {/* Branding (removed personal name and blue highlight) */}
+        <a
+          href="/"
+          style={{
+            fontFamily: "'Sora', sans-serif",
+            fontWeight: 800,
+            fontSize: "1.1rem",
+            color: "#ffffff",
+            textDecoration: "none",
           }}
         >
-          Adhish <span style={{ color: "white" }}>Paudel</span>
+          Portfolio
         </a>
 
         {/* Desktop Menu */}
