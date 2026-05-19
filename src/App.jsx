@@ -717,7 +717,7 @@ const DIARY_POSTS = {
       { src: IMG_KARN_JUMLA2, caption: "" },
       { src: IMG_KARN_RARA3,  caption: "" },
       { src: IMG_KARN_BANNER, caption: "" },
-      { src: IMG_KARN_JUMLA1, caption: "" }
+      
     ],
     insertAfter: [2, 6, 11, 12, 13] // Perfectly timed after Tharu, Surkhet highway, horse riding arrival, Rara exploration, and Jumla entry paragraphs
   }
