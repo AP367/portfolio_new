@@ -66,38 +66,405 @@ const SKILLS = [
 
 ];
 
-const PROJECTS = [
-  {
-    title: "Adaptive DWT-Based Fault Classification for Double-Circuit Transmission Lines: Validation Under Mutual Coupling Effects",
-    tag: "Power Systems",
-    color: "#00d4ff",
-    icon: "⚡",
-    intro: "An adaptive fault classification system developed for double-circuit transmission lines to accurately detect and classify electrical faults under mutual coupling conditions. The proposed method employs Discrete Wavelet Transform (DWT) for real-time extraction of transient current features and utilizes distance-adaptive threshold logic to identify fault types with high precision. By enabling fast and reliable fault isolation without requiring offline training, the system enhances transmission network protection, minimizes misclassification, and improves overall power system reliability.",
-    tech: ["Matlab", "Simulink", "db4 wavelet", "DWT Method"],
-    pdfLabel: "View Project Report",
-    pdfUrl: "/Documents/Research_Paper Final.pdf",
-  },
-  {
-    title: "GSM-based Remote Monitoring System",
-    tag: "IoT / Telecom",
-    color: "#00ff9d",
-    icon: "📡",
-    intro: "A remote monitoring system leveraging GSM communication modules to transmit real-time electrical sensor data via SMS alerts to registered numbers. The system is designed for off-site monitoring of critical parameters including voltage fluctuation, temperature, and load current — enabling operators to respond to anomalies without physical presence at the installation site.",
-    tech: ["GSM SIM800L", "Arduino", "Sensors", "AT Commands"],
-    pdfLabel: "In the Final Phase",
-    pdfUrl: "#",
-  },
-  {
-    title: "Solar-Powered Electronics Project",
-    tag: "Renewable Energy",
-    color: "#ffd700",
-    icon: "☀️",
-    intro: "Design and practical implementation of a solar energy harvesting system with Maximum Power Point Tracking (MPPT) charging, lithium-ion battery management, and regulated DC load output. This project explores sustainable off-grid power delivery, focusing on charge optimization, battery health monitoring, and efficient load distribution for small electronics and sensor nodes.",
-    tech: ["Solar Panels", "MPPT Controller", "Li-ion BMS", "PWM"],
-    pdfLabel: "In the Final Phase",
-    pdfUrl: "#",
-  },
-];
+function ProjectsDuplicate() {
+  const [activeProject, setActiveProject] = useState(null);
+
+  const projs = [
+    {
+      id: "adaptive-dwt-fault",
+      title: "Adaptive DWT-Based Fault Classification for Double-Circuit Transmission Lines: Validation Under Mutual Coupling Effects",
+      desc: "An adaptive fault classification system developed for double-circuit transmission lines to accurately detect and classify electrical faults under mutual coupling conditions using Discrete Wavelet Transform (DWT).",
+      tech: ["Matlab", "Simulink", "db4 wavelet", "DWT Method"],
+      badge: "RESEARCH PAPER",
+      themeColor: "#00d4ff",
+      icon: "⚡",
+      pdfLabel: "View Project Report",
+      pdfUrl: "/Documents/Research_Paper Final.pdf",
+      details: {
+        location: "Department of Electrical Engineering, IOE",
+        duration: "Academic Semester",
+        team: ["Adhish Paudel"],
+        award: "Research Project",
+        overview: "An adaptive fault classification system developed for double-circuit transmission lines to accurately detect and classify electrical faults under mutual coupling conditions. The proposed method employs Discrete Wavelet Transform (DWT) for real-time extraction of transient current features and utilizes distance-adaptive threshold logic to identify fault types with high precision. By enabling fast and reliable fault isolation without requiring offline training, the system enhances transmission network protection, minimizes misclassification, and improves overall power system reliability.",
+        workflow: [
+          "Signal Acquisition: Transient current signals are gathered from both circuits of the transmission line configuration continuously during power transit.",
+          "Feature Extraction: Discrete Wavelet Transform (DWT) using the 'db4' mother wavelet decomposes high-frequency transients across short time windows.",
+          "Threshold Adaptation: An adaptive boundary calculation mechanism updates threshold coefficients dynamically to compensate for inductive and capacitive mutual coupling artifacts.",
+          "Classification Matrix: The extracted high-frequency feature energy runs through comparison bounds to isolate the exact fault loop structure (LG, LL, LLG, or symmetric faults)."
+        ],
+        components: [
+          { name: "Simulink Environment", function: "Models the double-circuit distributed parameter transmission grid lines and mutual coupling dynamics" },
+          { name: "db4 Wavelet Transformation", function: "Acts as the filter operator to catch localized singular disruptions in wave variations" },
+          { name: "Adaptive Threshold Engine", function: "Runs real-time calibration checks over varying line lengths to avoid spurious error classification" }
+        ],
+        formula: "E_{transient} = \\sum |C_{detail}(n)|^2 (Extracts localized wave energy deviations out of high-frequency decomposition bands to safely isolate faulty phases).",
+        decisions: [
+          "Wavelet Over Fourier: Fourier transform fails on transient non-periodic signals. Discrete Wavelet Transform provides simultaneous time-frequency resolution, critical for trapping localized sub-cycle fault incidents.",
+          "Mutual Coupling Compensation: The classification logic uses a differential balance checker that ignores induction fields crossing over from the parallel adjacent running circuit loop."
+        ],
+        limitations: "Highly dependent on sampling frequency standards. If the hardware instrumentation drops below the targeted resolution limit, wave singular transitions might blend out.",
+        upgrades: [
+          "Testing model variations across deep neural network boundaries (ANN/SVM) to check pattern recognition convergence limits.",
+          "Deploying onto real-time field hardware using high-speed FPGA boards."
+        ]
+      }
+    },
+    {
+      id: "l2g-fault-detection",
+      title: "L2G Fault Detection System",
+      desc: "Agricultural Power Grid Protection System engineered for single-phase distribution loops to instantly isolate line-to-ground surges.",
+      tech: ["Relay Module", "Current Transformer", "Circuit Design"],
+      badge: "HACKATHON WINNER · DELTA 5.0",
+      themeColor: "#10b981",
+      icon: "🛠️",
+      img: "/Photos/Project.jpg", // Tucked inside: Only rendered inside the detailed article view!
+      pdfLabel: "Hackathon Entry",
+      pdfUrl: "#",
+      details: {
+        location: "IOE Eastern Region Campus, Dharan, Nepal",
+        duration: "12 Hours",
+        team: ["Bishrant Ghimire", "Shishir Poudel", "Adhish Paudel", "Mausham Sigdel"],
+        award: "Best Emerging Team",
+        overview: "Line-to-ground faults are among the most common electrical faults in single-phase distribution systems. They occur when a live conductor makes unintended contact with ground through insulation failure, physical damage, or environmental exposure. In agricultural settings, these faults can damage irrigation pumps, create severe electrocution hazards in wet soil, and cause prolonged crop outages. This hardware-level protection system detects the electrical signature of an active L2G fault and immediately isolates the downstream circuit loop.",
+        workflow: [
+          "Normal operation: Under normal load conditions, current follows a predictable sinusoidal profile. The system monitors this baseline magnitude continuously.",
+          "Fault condition: A low-impedance line-to-ground connection creates an instantaneous surge spike that deviates heavily from normal wave symmetry.",
+          "Detection: When the measured threshold spikes past the analog calibration limits, the primary relay module trips open instantly, dropping downstream isolation.",
+          "Reset: Once the physical pathway fault is safely cleared, a manual interface override allows engineers to restore source grid current safely."
+        ],
+        components: [
+          { name: "Relay Module", function: "Core hardware switching mechanism and structural boundary threshold comparison" },
+          { name: "Current Transformer (CT)", function: "Provides non-invasive current sensing directly clamped over the live conductor line" },
+          { name: "Signal Conditioning", function: "Rectifies and scales raw analog current transformer output down to acceptable relay logic levels" },
+          { name: "Status LEDs", function: "Emits real-time diagnostic status updates across normal, active fault, and tripped configurations" },
+          { name: "Reset Button", function: "Implements manual mechanical fault clearing authorization before closing the loop" }
+        ],
+        formula: "I_trip = k × I_rated (Where k acts as the trip factor multiplier balanced at 1.5–2.0x standard load to handle high-inrush motor startup currents without causing false-positive trips).",
+        decisions: [
+          "Relay-Centric Architecture: Opting out of a microcontroller removes software dependencies, clock cycles, and firmware crashes. This ensures robust, deterministic analog tracking ideal for harsh, unattended farm zones.",
+          "Calibration Balance: The sensing parameters are tightly bounded: tuned high enough to shrug off massive motor-starting inrush spikes, but low enough to capture minimal-fault soil pathways.",
+          "Sub-Cycle Operations: Operates entirely within sub-cycle constraints, instantly breaking the link before thermal wire stress can ignite surrounding equipment."
+        ],
+        limitations: "This implementation targets solid or low-impedance bolted connections. High-impedance events (e.g., a downed wire making contact with highly resistive dry soil) drop smaller current signatures. Capturing these edge-cases would require adding an active ADC stack and microcontroller waveform sampling.",
+        upgrades: [
+          "Integrating an onboard microcontroller + fast ADC to track phase angle and run micro-harmonic wave patterns.",
+          "Adding automated multi-attempt smart grid reclosing checks.",
+          "Deploying long-range wireless alerts via GSM or LoRa links to message farmers when a remote water pump trips."
+        ]
+      }
+    },
+    {
+      id: "gsm-remote-monitoring",
+      title: "GSM-based Remote Monitoring System",
+      desc: "A remote monitoring system leveraging GSM communication modules to transmit real-time electrical sensor data via SMS alerts.",
+      tech: ["GSM SIM800L", "Arduino", "Sensors", "AT Commands"],
+      badge: "IOT / TELECOM",
+      themeColor: "#00ff9d",
+      icon: "📡",
+      pdfLabel: "In the Final Phase",
+      pdfUrl: "#",
+      details: {
+        location: "Embedded Systems Development Lab",
+        duration: "Ongoing Research",
+        team: ["Adhish Paudel"],
+        award: "Prototyping Phase",
+        overview: "A remote monitoring system leveraging GSM communication modules to transmit real-time electrical sensor data via SMS alerts to registered numbers. The system is designed for off-site monitoring of critical parameters including voltage fluctuation, temperature, and load current — enabling operators to respond to anomalies without physical presence at the installation site.",
+        workflow: [
+          "Continuous Telemetry: Sensor nodes track primary voltage vectors, operating core temperatures, and branch circuit line currents.",
+          "Anomalous Interception: When an operational anomaly crosses safe boundaries, an evaluation routine locks down background processing.",
+          "Packet Construct: The processing chip wraps the error statistics inside a descriptive text message format string.",
+          "Cellular Transmission: The transceiver dispatches AT commands over serial channels to relay urgent diagnostic text indicators directly to regional technicians."
+        ],
+        components: [
+          { name: "GSM SIM800L Module", function: "Handles quad-band cellular network links and outputs transmission sequences via SMS channels" },
+          { name: "Arduino Core Architecture", function: "Coordinates analog acquisition, conditional boundary testing, and AT command dispatch structures" },
+          { name: "Sensing Array Elements", function: "Translates active operational voltage drops and ambient heat into readable linear voltage signatures" }
+        ],
+        formula: "ΔV = V_nominal - V_measured (Tracks baseline voltage divergence thresholds over rolling timelines to catch localized brownout scenarios).",
+        decisions: [
+          "GSM over Wi-Fi: Critical grid infrastructure is regularly deployed in rural areas lacking reliable Wi-Fi networks. Cellular infrastructure offers much wider coverage, making standard SMS alerts highly robust.",
+          "Non-blocking State Machine: The software stack is structured without using delay locks, ensuring sensor data lines are continuously scanned even during connection handshakes."
+        ],
+        limitations: "Highly dependent on steady local cell tower signals and requires an active cellular SIM account package to maintain monitoring loops.",
+        upgrades: [
+          "Transitioning the hardware to modern LTE-M/NB-IoT network chips to avoid future 2G network sunsets.",
+          "Developing a centralized database dashboard to log incoming network updates."
+        ]
+      }
+    },
+    {
+      id: "solar-powered-mppt",
+      title: "Solar-Powered Electronics Project",
+      desc: "Practical implementation of a solar energy harvesting system with Maximum Power Point Tracking (MPPT) charging control algorithms.",
+      tech: ["Solar Panels", "MPPT Controller", "Li-ion BMS", "PWM"],
+      badge: "RENEWABLE ENERGY",
+      themeColor: "#ffd700",
+      icon: "☀️",
+      pdfLabel: "In the Final Phase",
+      pdfUrl: "#",
+      details: {
+        location: "Renewable Energy Research Annex",
+        duration: "Academic Lab Focus",
+        team: ["Adhish Paudel"],
+        award: "System Design",
+        overview: "Design and practical implementation of a solar energy harvesting system with Maximum Power Point Tracking (MPPT) charging, lithium-ion battery management, and regulated DC load output. This project explores sustainable off-grid power delivery, focusing on charge optimization, battery health monitoring, and efficient load distribution for small electronics and sensor nodes.",
+        workflow: [
+          "Harvest Optimization: Sensors read instant voltage-current vectors coming out of the solar collection grid layout.",
+          "MPPT Tracking: Tracking loops sweep duty cycles to lock system performance precisely around optimal operating points.",
+          "BMS Regulation: Battery management elements monitor lithium state boundaries to avoid cell overstress.",
+          "Load Balancing: Clean step-down micro-converters output steady DC lines to running application circuit nodes."
+        ],
+        components: [
+          { name: "Photovoltaic Panel Setup", function: "Converts solar irradiance into raw DC lines with variable power output characteristics" },
+          { name: "MPPT Circuit Controller", function: "Adjusts internal step-down matching levels to track peak power points" },
+          { name: "Lithium BMS Controller", function: "Enforces thermal protection bounds, charge safety cutoffs, and cell balance alignment" }
+        ],
+        formula: "P_{max} = V_{mpp} \\times I_{mpp} (Continuously tracks internal operational curves to extract peak solar conversion levels).",
+        decisions: [
+          "Buck Topology Choice: Direct buck conversion structures allow high matching efficiency when down-converting common solar string levels into low-voltage lithium rails.",
+          "Perturb and Observe: Implemented a fast P&O algorithmic routine that provides reliable tracking convergence under shifting daylight conditions."
+        ],
+        limitations: "Under severe cloud cover, tracking efficiency drops. The system requires minimal baseline light profiles to drive processing chips.",
+        upgrades: [
+          "Integrating step-up buck-boost conversions to harvest energy from weak dawn and dusk conditions.",
+          "Adding a communication layer to log long-term collection stats."
+        ]
+      }
+    }
+  ];
+
+  const ref = useScrollReveal();
+
+  // ════════════════════════════════════════════════════════════════
+  // DETAILED DETACHED LOGS INTERFACE
+  // ════════════════════════════════════════════════════════════════
+  if (activeProject) {
+    const p = activeProject;
+    return (
+      <div style={{ background: "#060a16", minHeight: "100vh", paddingBottom: 80, color: "#fff", position: "relative", zIndex: 100 }}>
+        {/* Navigation Sticky Top Control Bar */}
+        <div style={{ position: "sticky", top: 0, zIndex: 110, background: "rgba(6,10,22,0.97)", backdropFilter: "blur(18px)", borderBottom: `1px solid ${p.themeColor}33`, padding: "0 2rem" }}>
+          <div style={{ maxWidth: 1100, margin: "0 auto", height: 58, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <span style={{ fontFamily: "'Share Tech Mono', monospace", color: p.themeColor, fontSize: 11, letterSpacing: 3 }}>{p.badge}</span>
+            <button 
+              onClick={() => { setActiveProject(null); setTimeout(() => { document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }); }, 50); }} 
+              style={{ background: "none", border: "1px solid rgba(255,255,255,0.2)", color: "rgba(255,255,255,0.6)", fontFamily: "'Share Tech Mono', monospace", fontSize: 11, letterSpacing: 1.5, padding: "7px 16px", borderRadius: 6, cursor: "pointer", transition: "all 0.2s" }}
+              onMouseEnter={e => { e.target.style.borderColor = p.themeColor; e.target.style.color = p.themeColor; }}
+              onMouseLeave={e => { e.target.style.borderColor = "rgba(255,255,255,0.2)"; e.target.style.color = "rgba(255,255,255,0.6)"; }}
+            >
+              ← CLOSE SPECIFICATION
+            </button>
+          </div>
+        </div>
+
+        {/* Hero Meta Description Block Split */}
+        <div style={{ maxWidth: 1100, margin: "40px auto 0", padding: "0 2rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 40 }}>
+          
+          {/* Hardware Photo Presentation Wrapper (Conditional check to avoid rendering blank frames) */}
+          <div style={{ borderRadius: 16, overflow: "hidden", border: `1px solid ${p.themeColor}33`, boxShadow: `0 20px 50px rgba(0,0,0,0.4)`, display: p.img ? "block" : "flex", alignItems: "center", justifyContent: "center", background: "rgba(255,255,255,0.01)", minHeight: 260, position: "relative" }}>
+            {p.img ? (
+              <img src={p.img} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            ) : (
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+                <span style={{ fontSize: "4.5rem", opacity: 0.25 }}>{p.icon}</span>
+                <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 10, color: "rgba(255,255,255,0.3)", letterSpacing: 1.5 }}>TECHNICAL SCHEMATIC LOGGED</span>
+              </div>
+            )}
+          </div>
+
+          {/* Primary Meta Specs Header */}
+          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            <div style={{ fontFamily: "'Share Tech Mono', monospace", color: p.themeColor, fontSize: 12, letterSpacing: 3, marginBottom: 8 }}>{p.badge}</div>
+            <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: "clamp(1.5rem, 4vw, 2.2rem)", lineHeight: 1.2, fontWeight: 900, margin: "0 0 14px 0", color: "#fff" }}>{p.title}</h1>
+            
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 24 }}>
+              {p.tech.map((t, idx) => (
+                <span key={idx} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", padding: "4px 12px", borderRadius: 4, fontFamily: "'Share Tech Mono', monospace", fontSize: 11, color: "rgba(255,255,255,0.8)" }}>{t}</span>
+              ))}
+            </div>
+
+            {p.details && (
+              <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: "'Sora', sans-serif", fontSize: "0.88rem" }}>
+                <tbody>
+                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}><td style={{ padding: "10px 0", color: "rgba(255,255,255,0.4)" }}>FACILITY VENUE</td><td style={{ textAlign: "right" }}>{p.details.location}</td></tr>
+                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}><td style={{ padding: "10px 0", color: "rgba(255,255,255,0.4)" }}>PROJECT SCALE</td><td style={{ textAlign: "right", fontFamily: "'Share Tech Mono', monospace", color: p.themeColor }}>{p.details.duration}</td></tr>
+                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}><td style={{ padding: "10px 0", color: "rgba(255,255,255,0.4)" }}>CORE DEVELOPERS</td><td style={{ textAlign: "right" }}>{p.details.team.join(" / ")}</td></tr>
+                  <tr>
+                    <td style={{ padding: "10px 0", color: "rgba(255,255,255,0.4)" }}>CLASSIFICATION</td>
+                    <td style={{ textAlign: "right", color: p.themeColor, fontWeight: "bold" }}>
+                      {p.pdfUrl !== "#" ? (
+                        <a href={p.pdfUrl} target="_blank" rel="noreferrer" style={{ color: p.themeColor, textDecoration: "none", borderBottom: `1px dashed ${p.themeColor}` }}>
+                          {p.pdfLabel} ↗
+                        </a>
+                      ) : p.pdfLabel}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            )}
+          </div>
+        </div>
+
+        {/* Technical Specification Envelope Content */}
+        {p.details && (
+          <div style={{ maxWidth: 860, margin: "60px auto 0", padding: "0 2rem", fontFamily: "'Sora', sans-serif", fontSize: "1.02rem", lineHeight: 1.85, color: "rgba(255,255,255,0.75)" }}>
+            <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: 16, color: "#fff", borderBottom: `1px solid ${p.themeColor}1a`, paddingBottom: 6 }}>1. Overview Narrative</h3>
+            <p style={{ textAlign: "justify", marginBottom: 40 }}>{p.details.overview}</p>
+
+            <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: 16, color: "#fff", borderBottom: `1px solid ${p.themeColor}1a`, paddingBottom: 6 }}>2. Operational Sub-System Steps</h3>
+            <ul style={{ paddingLeft: 20, marginBottom: 40 }}>
+              {p.details.workflow.map((step, i) => <li key={i} style={{ marginBottom: 12 }}>{step}</li>)}
+            </ul>
+
+            {/* Microchip Parameter Calculus Frame */}
+            <div style={{ background: "rgba(255,255,255,0.01)", border: `1px solid ${p.themeColor}26`, padding: "24px 30px", borderRadius: 12, marginBottom: 40, boxShadow: `inset 0 0 20px ${p.themeColor}05` }}>
+              <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 10, color: p.themeColor, letterSpacing: 2, marginBottom: 12 }}>MATHEMATICAL CONTEXT RELATION</div>
+              <p style={{ margin: 0, fontSize: "0.95rem", color: "rgba(255,255,255,0.9)", fontStyle: "italic", lineHeight: 1.6 }}>{p.details.formula}</p>
+            </div>
+
+            <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: 16, color: "#fff", borderBottom: `1px solid ${p.themeColor}1a`, paddingBottom: 6 }}>3. Core Bill of Materials (BOM)</h3>
+            <div style={{ overflowX: "auto", marginBottom: 40 }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", fontSize: "0.9rem" }}>
+                <thead>
+                  <tr style={{ borderBottom: `2px solid ${p.themeColor}40`, color: "rgba(255,255,255,0.5)" }}>
+                    <th style={{ padding: "12px 8px" }}>HARDWARE MODULE</th>
+                    <th style={{ padding: "12px 8px" }}>SYSTEM ARCHITECTURE FUNCTION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {p.details.components.map((comp, i) => (
+                    <tr key={i} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                      <td style={{ padding: "14px 8px", fontWeight: 700, color: "#fff", fontFamily: "'Share Tech Mono', monospace" }}>{comp.name}</td>
+                      <td style={{ padding: "14px 8px", color: "rgba(255,255,255,0.7)", lineHeight: 1.5 }}>{comp.function}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: 16, color: "#fff", borderBottom: `1px solid ${p.themeColor}1a`, paddingBottom: 6 }}>4. Critical Engineering Choices</h3>
+            <div style={{ display: "grid", gap: 16, marginBottom: 40 }}>
+              {p.details.decisions.map((dec, i) => (
+                <div key={i} style={{ borderLeft: `3px solid ${p.themeColor}`, paddingLeft: 18, color: "rgba(255,255,255,0.75)", textAlign: "justify" }}>{dec}</div>
+              ))}
+            </div>
+
+            <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: 16, color: "#fff", borderBottom: `1px solid ${p.themeColor}1a`, paddingBottom: 6 }}>5. Structural Parameters and Constraints</h3>
+            <p style={{ textAlign: "justify", marginBottom: 40 }}>{p.details.limitations}</p>
+
+            <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: 16, color: "#fff", borderBottom: `1px solid ${p.themeColor}1a`, paddingBottom: 6 }}>6. Optimization Roadmap</h3>
+            <ul style={{ paddingLeft: 20, margin: 0 }}>
+              {p.details.upgrades.map((upg, i) => <li key={i} style={{ marginBottom: 8 }}>{upg}</li>)}
+            </ul>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // ════════════════════════════════════════════════════════════════
+  // CORE MATRIX MAIN PAGE GRID DESIGN (CLEAN ARCHITECTURE BLOCK)
+  // ════════════════════════════════════════════════════════════════
+  return (
+    <section id="projects" ref={ref} style={{ padding: "100px 2rem", background: "#060a16", borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+       
+        {/* Section Tag Indicator */}
+        <div style={{ display: "flex", alignItems: "center", gap: 15, marginBottom: 10 }}>
+          <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#00d4ff", boxShadow: "0 0 10px #00d4ff" }} />
+          <span style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 12, letterSpacing: 3 }}>ENGINEERING LOG MATRIX</span>
+        </div>
+         
+        <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: "2.5rem", fontWeight: 900, color: "#fff", margin: "0 0 50px 0" }}>
+          Selected <span style={{ background: "linear-gradient(45deg, #00d4ff, #a855f7)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Projects</span>
+        </h2>
+
+        {/* Adaptive Grid Showcase */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 30 }}>
+          {projs.map((p, idx) => (
+            <div 
+              key={idx}
+              onClick={() => { if (p.details) setActiveProject(p); }}
+              style={{ 
+                background: "rgba(255,255,255,0.01)", 
+                border: "1px solid rgba(255,255,255,0.05)", 
+                borderRadius: 16, 
+                padding: "32px",
+                cursor: p.details ? "pointer" : "default",
+                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                position: "relative",
+                overflow: "hidden",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between"
+              }}
+              onMouseEnter={e => {
+                if (p.details) {
+                  e.currentTarget.style.borderColor = `${p.themeColor}66`;
+                  e.currentTarget.style.background = `${p.themeColor}05`;
+                  e.currentTarget.style.transform = "translateY(-6px)";
+                  e.currentTarget.style.boxShadow = `0 12px 30px ${p.themeColor}0f`;
+                }
+              }}
+              onMouseLeave={e => {
+                if (p.details) {
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
+                  e.currentTarget.style.background = "rgba(255,255,255,0.01)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "none";
+                }
+              }}
+            >
+              <div>
+                {/* Card Context Meta Rows */}
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
+                  <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 10, background: `${p.themeColor}1a`, color: p.themeColor, padding: "4px 10px", borderRadius: 4, letterSpacing: 1, fontWeight: "bold" }}>
+                    {p.badge}
+                  </span>
+                  <span style={{ fontSize: "1.3rem", opacity: 0.75 }}>
+                    {p.icon}
+                  </span>
+                </div>
+
+                {/* Primary Card Title text */}
+                <h3 style={{ fontFamily: "'Sora', sans-serif", fontSize: "1.25rem", lineHeight: 1.4, fontWeight: 700, color: "#fff", margin: "0 0 14px 0" }}>
+                  {p.title}
+                </h3>
+                
+                {/* Description Segment */}
+                <p style={{ fontFamily: "'Sora', sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.6, margin: "0 0 28px 0", textAlign: "justify" }}>
+                  {p.desc}
+                </p>
+              </div>
+
+              {/* Bottom Footer Section Elements */}
+              <div style={{ marginTop: "auto" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 20 }}>
+                  {p.tech.map((t, i) => (
+                    <span key={i} style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 10, color: "rgba(255,255,255,0.6)", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)", padding: "3px 8px", borderRadius: 4 }}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div style={{ display: "flex", alignItems: "center", justifyBetween: "space-between", paddingTop: 14, borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: "'Share Tech Mono', monospace", fontSize: 11, color: p.themeColor, fontWeight: "bold" }}>
+                    EXAMINE DETAILED SCHEMATICS ↗
+                  </div>
+                  <span style={{ marginLeft: "auto", fontFamily: "'Share Tech Mono', monospace", color: "rgba(255,255,255,0.1)", fontSize: 12 }}>
+                    #{String(idx + 1).padStart(2, '0')}
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
 
 const GALLERY_ITEMS= [
  { url: "/Photos/Mountains.jpeg", caption: "Snow, silence, serenity." },
@@ -136,7 +503,7 @@ const ACADEMIC = [
     color: "#00d4ff",
     title: "School Education",
     items: [
-      { label: "Nursery – Grade 7", school: "Takshashila Academy", note: "Early schooling — where curiosity first sparked" },
+      { label: "Nursery – Grade 7", school: "Takshashila Academy", note: "Early schooling" },
       { label: "Grade 8 – Grade 10", school: "Meridian International School", note: "Completed secondary education in 2022" },
     ],
   },
@@ -146,7 +513,7 @@ const ACADEMIC = [
     color: "#ffd700",
     title: "Higher Secondary (+2 Science)",
     items: [
-      { label: "2022 – 2024", school: "Takshashila Academy", note: "Science stream — Physics, Chemistry, Mathematics" },
+      { label: "2022 – 2024", school: "Takshashila Academy", note: "Science stream : Physics, Chemistry, Mathematics" },
     ],
   },
   {
@@ -155,7 +522,7 @@ const ACADEMIC = [
     color: "#00ff9d",
     title: "Bachelor in Electrical Engineering",
     items: [
-      { label: "Currently: 2nd Year, 2nd Part", school: "Institute of Engineering, Pulchowk Campus", note: "Tribhuvan University — one of Nepal's most prestigious engineering colleges" },
+      { label: "Currently: 2nd Year, 2nd Part", school: "Institute of Engineering, Pulchowk Campus", note: "Tribhuvan University" },
     ],
   },
 ];
@@ -492,90 +859,330 @@ function Skills() {
 // PROJECTS
 // ════════════════════════════════════════════════════════════════
 function Projects() {
-  const [openPdf, setOpenPdf] = useState(null);
-  return (
-    <section id="projects" style={{ padding: "100px 2rem", maxWidth: 1100, margin: "0 auto" }}>
-      <RevealDiv>
-        <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 18, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>03.PROJECTS</div>
-        <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, fontFamily: "'Sora', sans-serif", marginBottom: 12, color: "white" }}>My <span style={{ color: "#00d4ff" }}>Works</span></h2>
-        <p style={{ color: "rgba(255,255,255,0.42)", fontFamily: "'Sora', sans-serif", marginBottom: 56, fontSize: "0.9rem" }}>Design. Build. Test. Repeat</p>
-      </RevealDiv>
-      <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
-        {PROJECTS.map((p, i) => (
-          <RevealDiv key={p.title} delay={i * 80}>
-            <div style={{
-              background: "rgba(6,14,30,0.9)", border: "1px solid rgba(255,255,255,0.07)",
-              borderRadius: 18, overflow: "hidden", display: "grid", gridTemplateColumns: "200px 1fr",
-              transition: "all 0.35s ease",
-            }} onMouseEnter={e => { e.currentTarget.style.borderColor = p.color + "40"; e.currentTarget.style.boxShadow = `0 8px 40px ${p.color}12`; }}
-               onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)"; e.currentTarget.style.boxShadow = "none"; }}>
-              <div style={{
-                background: `linear-gradient(160deg, ${p.color}22 0%, rgba(6,14,30,0.95) 100%)`,
-                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                padding: "32px 16px", gap: 14, position: "relative",
-              }}>
-                <div style={{ position: "absolute", inset: 0, background: `radial-gradient(circle at 40% 40%, ${p.color}18 0%, transparent 65%)` }} />
-                <div style={{ fontSize: 48, position: "relative" }}>{p.icon}</div>
-                <div style={{ background: `${p.color}22`, border: `1px solid ${p.color}44`, borderRadius: 20, padding: "4px 12px", fontSize: 9, fontFamily: "'Share Tech Mono', monospace", color: p.color, letterSpacing: 1, textAlign: "center", position: "relative" }}>{p.tag}</div>
+  const [activeProject, setActiveProject] = useState(null);
+
+  const projs = [
+    {
+      id: "adaptive-dwt-fault",
+      title: "Adaptive DWT-Based Fault Classification for Double-Circuit Transmission Lines: Validation Under Mutual Coupling Effects",
+      desc: "An adaptive fault classification system developed for double-circuit transmission lines to accurately detect and classify electrical faults under mutual coupling conditions using Discrete Wavelet Transform (DWT).",
+      tech: ["Matlab", "Simulink", "db4 wavelet", "DWT Method"],
+      badge: "RESEARCH PAPER",
+      themeColor: "#00d4ff",
+      icon: "⚡",
+      pdfLabel: "View Project Report",
+      pdfUrl: "/Documents/Research_Paper Final.pdf",
+      details: {
+        location: "Department of Electrical Engineering, IOE",
+        duration: "Academic Semester",
+        team: ["Adhish Paudel"],
+        award: "Research Project",
+        overview: "An adaptive fault classification system developed for double-circuit transmission lines to accurately detect and classify electrical faults under mutual coupling conditions. The proposed method employs Discrete Wavelet Transform (DWT) for real-time extraction of transient current features and utilizes distance-adaptive threshold logic to identify fault types with high precision. By enabling fast and reliable fault isolation without requiring offline training, the system enhances transmission network protection, minimizes misclassification, and improves overall power system reliability.",
+        workflow: [
+          "Signal Acquisition: Transient current signals are gathered from both circuits of the transmission line configuration continuously during power transit.",
+          "Feature Extraction: Discrete Wavelet Transform (DWT) using the 'db4' mother wavelet decomposes high-frequency transients across short time windows.",
+          "Threshold Adaptation: An adaptive boundary calculation mechanism updates threshold coefficients dynamically to compensate for inductive and capacitive mutual coupling artifacts.",
+          "Classification Matrix: The extracted high-frequency feature energy runs through comparison bounds to isolate the exact fault loop structure (LG, LL, LLG, or symmetric faults)."
+        ],
+        components: [
+          { name: "Simulink Environment", function: "Models the double-circuit distributed parameter transmission grid lines and mutual coupling dynamics" },
+          { name: "db4 Wavelet Transformation", function: "Acts as the filter operator to catch localized singular disruptions in wave variations" },
+          { name: "Adaptive Threshold Engine", function: "Runs real-time calibration checks over varying line lengths to avoid spurious error classification" }
+        ],
+        formula: "E_{transient} = \\sum |C_{detail}(n)|^2 (Extracts localized wave energy deviations out of high-frequency decomposition bands to safely isolate faulty phases).",
+        decisions: [
+          "Wavelet Over Fourier: Fourier transform fails on transient non-periodic signals. Discrete Wavelet Transform provides simultaneous time-frequency resolution, critical for trapping localized sub-cycle fault incidents.",
+          "Mutual Coupling Compensation: The classification logic uses a differential balance checker that ignores induction fields crossing over from the parallel adjacent running circuit loop."
+        ],
+        limitations: "Highly dependent on sampling frequency standards. If the hardware instrumentation drops below the targeted resolution limit, wave singular transitions might blend out.",
+        upgrades: [
+          "Testing model variations across deep neural network boundaries (ANN/SVM) to check pattern recognition convergence limits.",
+          "Deploying onto real-time field hardware using high-speed FPGA boards."
+        ]
+      }
+    },
+    {
+      id: "l2g-fault-detection",
+      title: "L2G Fault Detection System",
+      desc: "Agricultural Power Grid Protection System engineered for single-phase distribution loops to instantly isolate line-to-ground surges.",
+      tech: ["Relay Module", "Current Transformer", "Circuit Design"],
+      badge: "Best Emerging Team  · DELTA 5.0",
+      themeColor: "#10b981",
+      icon: "🛠️",
+      img: "/Photos/Project.jpg",
+      pdfLabel: "Hackathon Entry",
+      pdfUrl: "#",
+      details: {
+        location: "IOE Eastern Region Campus, Dharan, Nepal",
+        duration: "12 Hours",
+        team: ["Adhish Paudel","Bishrant Ghimire", "Shishir Paudel", "Mausham Sigdel"],
+        award: "Best Emerging Team",
+        overview: "Line-to-ground faults are among the most common electrical faults in single-phase distribution systems. They occur when a live conductor makes unintended contact with ground through insulation failure, physical damage, or environmental exposure. In agricultural settings, these faults can damage irrigation pumps, create severe electrocution hazards in wet soil, and cause prolonged crop outages. This hardware-level protection system detects the electrical signature of an active L2G fault and immediately isolates the downstream circuit loop.",
+        workflow: [
+          "Normal operation: Under normal load conditions, current follows a predictable sinusoidal profile. The system monitors this baseline magnitude continuously.",
+          "Fault condition: A low-impedance line-to-ground connection creates an instantaneous surge spike that deviates heavily from normal wave symmetry.",
+          "Detection: When the measured threshold spikes past the analog calibration limits, the primary relay module trips open instantly, dropping downstream isolation.",
+          "Reset: Once the physical pathway fault is safely cleared, a manual interface override allows engineers to restore source grid current safely."
+        ],
+        components: [
+          { name: "Relay Module", function: "Core hardware switching mechanism and structural boundary threshold comparison" },
+          { name: "Current Transformer (CT)", function: "Provides non-invasive current sensing directly clamped over the live conductor line" },
+          { name: "Signal Conditioning", function: "Rectifies and scales raw analog current transformer output down to acceptable relay logic levels" },
+          { name: "Status LEDs", function: "Emits real-time diagnostic status updates across normal, active fault, and tripped configurations" },
+          { name: "Reset Button", function: "Implements manual mechanical fault clearing authorization before closing the loop" }
+        ],
+        formula: "I_trip = k × I_rated (Where k acts as the trip factor multiplier balanced at 1.5–2.0x standard load to handle high-inrush motor startup currents without causing false-positive trips).",
+        decisions: [
+          "Relay-Centric Architecture: Opting out of a microcontroller removes software dependencies, clock cycles, and firmware crashes. This ensures robust, deterministic analog tracking ideal for harsh, unattended farm zones.",
+          "Calibration Balance: The sensing parameters are tightly bounded: tuned high enough to shrug off massive motor-starting inrush spikes, but low enough to capture minimal-fault soil pathways.",
+          "Sub-Cycle Operations: Operates entirely within sub-cycle constraints, instantly breaking the link before thermal wire stress can ignite surrounding equipment."
+        ],
+        limitations: "This implementation targets solid or low-impedance bolted connections. High-impedance events (e.g., a downed wire making contact with highly resistive dry soil) drop smaller current signatures. Capturing these edge-cases would require adding an active ADC stack and microcontroller waveform sampling.",
+        upgrades: [
+          "Integrating an onboard microcontroller + fast ADC to track phase angle and run micro-harmonic wave patterns.",
+          "Adding automated multi-attempt smart grid reclosing checks.",
+          "Deploying long-range wireless alerts via GSM or LoRa links to message farmers when a remote water pump trips."
+        ]
+      }
+    },
+    {
+      id: "gsm-remote-monitoring",
+      title: "GSM-based Remote Monitoring System",
+      desc: "A remote monitoring system leveraging GSM communication modules to transmit real-time electrical sensor data via SMS alerts.",
+      tech: ["GSM SIM800L", "Arduino", "Sensors", "AT Commands"],
+      badge: "IOT / TELECOM",
+      themeColor: "#00ff9d",
+      icon: "📡",
+      pdfLabel: "In the Final Phase",
+      pdfUrl: "#",
+      details: {
+        location: "Embedded Systems Development Lab",
+        duration: "Ongoing Research",
+        team: ["Adhish Paudel"],
+        award: "Prototyping Phase",
+        overview: "A remote monitoring system leveraging GSM communication modules to transmit real-time electrical sensor data via SMS alerts to registered numbers. The system is designed for off-site monitoring of critical parameters including voltage fluctuation, temperature, and load current — enabling operators to respond to anomalies without physical presence at the installation site.",
+        workflow: [
+          "Continuous Telemetry: Sensor nodes track primary voltage vectors, operating core temperatures, and branch circuit line currents.",
+          "Anomalous Interception: When an operational anomaly crosses safe boundaries, an evaluation routine locks down background processing.",
+          "Packet Construct: The processing chip wraps the error statistics inside a descriptive text message format string.",
+          "Cellular Transmission: The transceiver dispatches AT commands over serial channels to relay urgent diagnostic text indicators directly to regional technicians."
+        ],
+        components: [
+          { name: "GSM SIM800L Module", function: "Handles quad-band cellular network links and outputs transmission sequences via SMS channels" },
+          { name: "Arduino Core Architecture", function: "Coordinates analog acquisition, conditional boundary testing, and AT command dispatch structures" },
+          { name: "Sensing Array Elements", function: "Translates active operational voltage drops and ambient heat into readable linear voltage signatures" }
+        ],
+        formula: "ΔV = V_nominal - V_measured (Tracks baseline voltage divergence thresholds over rolling timelines to catch localized brownout scenarios).",
+        decisions: [
+          "GSM over Wi-Fi: Critical grid infrastructure is regularly deployed in rural areas lacking reliable Wi-Fi networks. Cellular infrastructure offers much wider coverage, making standard SMS alerts highly robust.",
+          "Non-blocking State Machine: The software stack is structured without using delay locks, ensuring sensor data lines are continuously scanned even during connection handshakes."
+        ],
+        limitations: "Highly dependent on steady local cell tower signals and requires an active cellular SIM account package to maintain monitoring loops.",
+        upgrades: [
+          "Transitioning the hardware to modern LTE-M/NB-IoT network chips to avoid future 2G network sunsets.",
+          "Developing a centralized database dashboard to log incoming network updates."
+        ]
+      }
+    },
+    {
+      id: "solar-powered-mppt",
+      title: "Solar-Powered Electronics Project",
+      desc: "Practical implementation of a solar energy harvesting system with Maximum Power Point Tracking (MPPT) charging control algorithms.",
+      tech: ["Solar Panels", "MPPT Controller", "Li-ion BMS", "PWM"],
+      badge: "RENEWABLE ENERGY",
+      themeColor: "#ffd700",
+      icon: "☀️",
+      pdfLabel: "In the Final Phase",
+      pdfUrl: "#",
+      details: {
+        location: "Renewable Energy Research Annex",
+        duration: "Academic Lab Focus",
+        team: ["Adhish Paudel"],
+        award: "System Design",
+        overview: "Design and practical implementation of a solar energy harvesting system with Maximum Power Point Tracking (MPPT) charging, lithium-ion battery management, and regulated DC load output. This project explores sustainable off-grid power delivery, focusing on charge optimization, battery health monitoring, and efficient load distribution for small electronics and sensor nodes.",
+        workflow: [
+          "Harvest Optimization: Sensors read instant voltage-current vectors coming out of the solar collection grid layout.",
+          "MPPT Tracking: Tracking loops sweep duty cycles to lock system performance precisely around optimal operating points.",
+          "BMS Regulation: Battery management elements monitor lithium state boundaries to avoid cell overstress.",
+          "Load Balancing: Clean step-down micro-converters output steady DC lines to running application circuit nodes."
+        ],
+        components: [
+          { name: "Photovoltaic Panel Setup", function: "Converts solar irradiance into raw DC lines with variable power output characteristics" },
+          { name: "MPPT Circuit Controller", function: "Adjusts internal step-down matching levels to track peak power points" },
+          { name: "Lithium BMS Controller", function: "Enforces thermal protection bounds, charge safety cutoffs, and cell balance alignment" }
+        ],
+        formula: "P_{max} = V_{mpp} \\times I_{mpp} (Continuously tracks internal operational curves to extract peak solar conversion levels).",
+        decisions: [
+          "Buck Topology Choice: Direct buck conversion structures allow high matching efficiency when down-converting common solar string levels into low-voltage lithium rails.",
+          "Perturb and Observe: Implemented a fast P&O algorithmic routine that provides reliable tracking convergence under shifting daylight conditions."
+        ],
+        limitations: "Under severe cloud cover, tracking efficiency drops. The system requires minimal baseline light profiles to drive processing chips.",
+        upgrades: [
+          "Integrating step-up buck-boost conversions to harvest energy from weak dawn and dusk conditions.",
+          "Adding a communication layer to log long-term collection stats."
+        ]
+      }
+    }
+  ];
+
+  const ref = useScrollReveal();
+
+  if (activeProject) {
+    const p = activeProject;
+    return (
+      <div style={{ background: "#060a16", minHeight: "100vh", paddingBottom: 80, color: "#fff", position: "relative", zIndex: 100 }}>
+        <div style={{ position: "sticky", top: 0, zIndex: 110, background: "rgba(6,10,22,0.97)", backdropFilter: "blur(18px)", borderBottom: `1px solid ${p.themeColor}33`, padding: "0 2rem" }}>
+          
+          <div style={{ maxWidth: 1100, margin: "0 auto", height: 58, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <span style={{ fontFamily: "'Share Tech Mono', monospace", color: p.themeColor, fontSize: 11, letterSpacing: 3 }}>{p.badge}</span>
+            <button 
+              onClick={() => { setActiveProject(null); setTimeout(() => { document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }); }, 50); }} 
+              style={{ background: "none", border: "1px solid rgba(255,255,255,0.2)", color: "rgba(255,255,255,0.6)", fontFamily: "'Share Tech Mono', monospace", fontSize: 11, letterSpacing: 1.5, padding: "7px 16px", borderRadius: 6, cursor: "pointer" }}
+            >
+              ← CLOSE SPECIFICATION
+            </button>
+          </div>
+        </div>
+
+        <div style={{ maxWidth: 1100, margin: "40px auto 0", padding: "0 2rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 40 }}>
+          <div style={{ borderRadius: 16, overflow: "hidden", border: `1px solid ${p.themeColor}33`, boxShadow: `0 20px 50px rgba(0,0,0,0.4)`, display: p.img ? "block" : "flex", alignItems: "center", justifyContent: "center", background: "rgba(255,255,255,0.01)", minHeight: 260 }}>
+            {p.img ? (
+              <img src={p.img} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            ) : (
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+                <span style={{ fontSize: "4.5rem", opacity: 0.25 }}>{p.icon}</span>
+                <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 10, color: "rgba(255,255,255,0.3)", letterSpacing: 1.5 }}>TECHNICAL LOG EXTRACTED</span>
               </div>
-              <div style={{ padding: "28px 30px" }}>
-                <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 800, fontSize: "1.1rem", marginBottom: 12, color: "#fff", lineHeight: 1.3 }}>{p.title}</h3>
-                <p style={{ fontSize: "0.87rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.8, marginBottom: 20, fontFamily: "'Sora', sans-serif" }}>{p.intro}</p>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
-                    {p.tech.map(t => (
-                      <span key={t} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.09)", borderRadius: 5, padding: "3px 10px", fontSize: 10, fontFamily: "'Share Tech Mono', monospace", color: "rgba(255,255,255,0.4)", letterSpacing: 0.5 }}>{t}</span>
-                    ))}
-                  </div>
-                  <button onClick={() => setOpenPdf(p)} style={{
-                    background: `${p.color}18`, border: `1px solid ${p.color}44`, color: p.color,
-                    fontFamily: "'Share Tech Mono', monospace", fontSize: 10, letterSpacing: 1.5,
-                    padding: "9px 18px", borderRadius: 8, cursor: "pointer", transition: "all 0.2s",
-                    textTransform: "uppercase", whiteSpace: "nowrap",
-                  }} onMouseEnter={e => { e.target.style.background = `${p.color}30`; }}
-                     onMouseLeave={e => { e.target.style.background = `${p.color}18`; }}>
-                    📄 {p.pdfLabel}
-                  </button>
+            )}
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            <div style={{ fontFamily: "'Share Tech Mono', monospace", color: p.themeColor, fontSize: 12, letterSpacing: 3, marginBottom: 8 }}>{p.badge}</div>
+            <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: "1.8rem", fontWeight: 900, margin: "0 0 14px 0", color: "#fff" }}>{p.title}</h1>
+            
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 24 }}>
+              {p.tech.map((t, idx) => (
+                <span key={idx} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", padding: "4px 12px", borderRadius: 4, fontFamily: "'Share Tech Mono', monospace", fontSize: 11, color: "rgba(255,255,255,0.8)" }}>{t}</span>
+              ))}
+            </div>
+
+            <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: "'Sora', sans-serif", fontSize: "0.88rem" }}>
+              <tbody>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}><td style={{ padding: "10px 0", color: "rgba(255,255,255,0.4)" }}>FACILITY VENUE</td><td style={{ textAlign: "right" }}>{p.details.location}</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}><td style={{ padding: "10px 0", color: "rgba(255,255,255,0.4)" }}>PROJECT SCALE</td><td style={{ textAlign: "right", fontFamily: "'Share Tech Mono', monospace", color: p.themeColor }}>{p.details.duration}</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}><td style={{ padding: "10px 0", color: "rgba(255,255,255,0.4)" }}>CORE DEVELOPERS</td><td style={{ textAlign: "right" }}>{p.details.team.join(" / ")}</td></tr>
+                <tr>
+                  <td style={{ padding: "10px 0", color: "rgba(255,255,255,0.4)" }}>CLASSIFICATION</td>
+                  <td style={{ textAlign: "right", color: p.themeColor, fontWeight: "bold" }}>
+                    {p.pdfUrl !== "#" ? <a href={p.pdfUrl} target="_blank" rel="noreferrer" style={{ color: p.themeColor, textDecoration: "none" }}>{p.pdfLabel} ↗</a> : p.pdfLabel}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div style={{ maxWidth: 860, margin: "60px auto 0", padding: "0 2rem", fontFamily: "'Sora', sans-serif", fontSize: "1.02rem", lineHeight: 1.85, color: "rgba(255,255,255,0.75)" }}>
+          <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: 16, color: "#fff" }}>1. Overview Narrative</h3>
+          <p style={{ textAlign: "justify", marginBottom: 40 }}>{p.details.overview}</p>
+
+          <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: 16, color: "#fff" }}>2. Operational Sub-System Steps</h3>
+          <ul style={{ paddingLeft: 20, marginBottom: 40 }}>
+            {p.details.workflow.map((step, i) => <li key={i} style={{ marginBottom: 12 }}>{step}</li>)}
+          </ul>
+
+          <div style={{ background: "rgba(255,255,255,0.01)", border: `1px solid ${p.themeColor}26`, padding: "24px 30px", borderRadius: 12, marginBottom: 40 }}>
+            <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 10, color: p.themeColor, letterSpacing: 2, marginBottom: 12 }}>MATHEMATICAL RELATIONS</div>
+            <p style={{ margin: 0, fontSize: "0.95rem", color: "rgba(255,255,255,0.9)" }}>{p.details.formula}</p>
+          </div>
+
+          <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: 16, color: "#fff" }}>3. Core Bill of Materials (BOM)</h3>
+          <div style={{ overflowX: "auto", marginBottom: 40 }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", fontSize: "0.9rem" }}>
+              <thead>
+                <tr style={{ borderBottom: `2px solid ${p.themeColor}40`, color: "rgba(255,255,255,0.5)" }}>
+                  <th style={{ padding: 12 }}>HARDWARE MODULE</th>
+                  <th style={{ padding: 12 }}>SYSTEM ARCHITECTURE FUNCTION</th>
+                </tr>
+              </thead>
+              <tbody>
+                {p.details.components.map((comp, i) => (
+                  <tr key={i} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                    <td style={{ padding: 12, fontWeight: 700, color: "#fff", fontFamily: "'Share Tech Mono', monospace" }}>{comp.name}</td>
+                    <td style={{ padding: 12, color: "rgba(255,255,255,0.7)" }}>{comp.function}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: 16, color: "#fff" }}>4. Critical Engineering Choices</h3>
+          <div style={{ display: "grid", gap: 16, marginBottom: 40 }}>
+            {p.details.decisions.map((dec, i) => <div key={i} style={{ borderLeft: `3px solid ${p.themeColor}`, paddingLeft: 18 }}>{dec}</div>)}
+          </div>
+
+          <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: 16, color: "#fff" }}>5. Structural Limitations</h3>
+          <p style={{ textAlign: "justify", marginBottom: 40 }}>{p.details.limitations}</p>
+
+          <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: 16, color: "#fff" }}>6. Optimization Roadmap</h3>
+          <ul style={{ paddingLeft: 20 }}>
+            {p.details.upgrades.map((upg, i) => <li key={i} style={{ marginBottom: 8 }}>{upg}</li>)}
+          </ul>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <section id="projects" ref={ref} style={{ padding: "100px 2rem", background: "#060a16", borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 15, marginBottom: 10 }}>
+          
+        </div>
+        
+       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: 32 }}>
+          <div style={{ fontFamily: "'Share Tech Mono', monospace", color: "#00d4ff", fontSize: 18, letterSpacing: 4, marginBottom: 12, opacity: 0.75 }}>
+            03.PROJECTS & INITIATIVES
+          </div>
+          <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, margin: 0, color: "white" }}>
+            Selected <span style={{ background: "linear-gradient(45deg, #00d4ff, #a855f7)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Projects</span>
+          </h2>
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 30 }}>
+          {projs.map((p, idx) => (
+            <div 
+              key={idx}
+              onClick={() => setActiveProject(p)}
+              style={{ background: "rgba(255,255,255,0.01)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: 16, padding: "32px", cursor: "pointer", display: "flex", flexDirection: "column", justifyContent: "space-between" }}
+            >
+              <div>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
+                  <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 10, background: `${p.themeColor}1a`, color: p.themeColor, padding: "4px 10px", borderRadius: 4, fontWeight: "bold" }}>{p.badge}</span>
+                  <span style={{ fontSize: "1.3rem" }}>{p.icon}</span>
+                </div>
+                <h3 style={{ fontFamily: "'Sora', sans-serif", fontSize: "1.25rem", lineHeight: 1.4, fontWeight: 700, color: "#fff", margin: "0 0 14px 0" }}>{p.title}</h3>
+                <p style={{ fontFamily: "'Sora', sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.6, margin: "0 0 28px 0" }}>{p.desc}</p>
+              </div>
+
+              <div style={{ marginTop: "auto" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 20 }}>
+                  {p.tech.map((t, i) => (
+                    <span key={i} style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 10, color: "rgba(255,255,255,0.6)", background: "rgba(255,255,255,0.03)", padding: "3px 8px", borderRadius: 4 }}>{t}</span>
+                  ))}
+                </div>
+                <div style={{ display: "flex", alignItems: "center", paddingTop: 14, borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+                  <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 11, color: p.themeColor, fontWeight: "bold" }}>EXAMINE SCHEMATICS ↗</div>
+                  <span style={{ marginLeft: "auto", fontFamily: "'Share Tech Mono', monospace", color: "rgba(255,255,255,0.1)", fontSize: 12 }}>#{String(idx + 1).padStart(2, '0')}</span>
                 </div>
               </div>
             </div>
-          </RevealDiv>
-        ))}
-      </div>
-
-      {openPdf && (
-        <div onClick={() => setOpenPdf(null)} style={{
-          position: "fixed", inset: 0, background: "rgba(0,0,0,0.88)", zIndex: 200,
-          display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem",
-          backdropFilter: "blur(10px)",
-        }}>
-          <div onClick={e => e.stopPropagation()} style={{
-            background: "#090f1e", border: `1px solid ${openPdf.color}44`, borderRadius: 18,
-            padding: "36px 40px", maxWidth: 520, width: "100%", textAlign: "center",
-          }}>
-            <div style={{ fontSize: 52, marginBottom: 16 }}>{openPdf.icon}</div>
-            <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 800, fontSize: "1.1rem", marginBottom: 12, color: "#fff" }}>{openPdf.title}</h3>
-            <p style={{ color: "rgba(255,255,255,0.48)", fontSize: "0.85rem", fontFamily: "'Sora', sans-serif", marginBottom: 30, lineHeight: 1.65 }}>
-              The full project report (PDF) will open in a new tab. Update the PDF link in the code once your file is ready.
-            </p>
-            <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
-              <a href={openPdf.pdfUrl} target="_blank" rel="noreferrer" style={{
-                background: `linear-gradient(135deg, ${openPdf.color}, ${openPdf.color}99)`, color: "#030810",
-                fontWeight: 700, fontFamily: "'Sora', sans-serif", padding: "11px 28px",
-                borderRadius: 8, textDecoration: "none", fontSize: 13,
-              }}>Open PDF →</a>
-              <button onClick={() => setOpenPdf(null)} style={{
-                background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.55)",
-                fontFamily: "'Sora', sans-serif", padding: "11px 24px", borderRadius: 8, cursor: "pointer", fontSize: 13,
-              }}>Close</button>
-            </div>
-          </div>
+          ))}
         </div>
-      )}
+      </div>
     </section>
   );
 }
-
 // ════════════════════════════════════════════════════════════════
 // ACADEMIC
 // ════════════════════════════════════════════════════════════════
@@ -1316,8 +1923,6 @@ function Footer() {
 // ════════════════════════════════════════════════════════════════
 export default function App() {
   const [activeSection, setActiveSection] = useState("");
-  
-  // Changed from a boolean to a key selector ('null', 'genz', or 'langtang')
   const [articleKey, setArticleKey] = useState(null);
 
   useEffect(() => {
@@ -1350,63 +1955,28 @@ export default function App() {
         @media (max-width: 780px) {
           .nav-desktop { display: none !important; }
           .nav-mobile-btn { display: flex !important; }
-          .nav-mobile-link {
-            font-size: 14px;
-          }
+          .nav-mobile-link { font-size: 14px; }
         }
-        section {
-          scroll-margin-top: 100px;
-        }
-        .hero-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-        .hero-image {
-          display: flex;
-          justify-content: flex-end;
-        }
+        section { scroll-margin-top: 100px; }
+        .hero-grid { grid-template-columns: 1fr 1fr; }
+        .hero-image { display: flex; justify-content: flex-end; }
         @media (max-width: 768px) {
-          .hero-grid {
-            grid-template-columns: 1fr;
-            gap: 30px;
-          }
-          .hero-image {
-            display: flex;
-            justify-content: center;
-            order: -1;
-          }
-          .hero-image img {
-            max-width: 100%;
-            height: auto;
-          }
+          .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+          .hero-image { display: flex; justify-content: center; order: -1; }
+          .hero-image img { max-width: 100%; height: auto; }
         }
-        .about-grid {
-          grid-template-columns: 1fr;
-        }
-        .about-grid > div:last-child {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 30px;
-        }
-        @media (max-width: 768px) {
-          .about-grid {
-            grid-template-columns: 1fr;
-            gap: 30px;
-          }
-        }
+        .about-grid { grid-template-columns: 1fr; }
+        .about-grid > div:last-child { display: flex; flex-direction: column; align-items: flex-start; gap: 30px; }
+        @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 30px; } }
         @media (max-width: 640px) {
           section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
           div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
           div[style*="grid-template-columns: 200px 1fr"] { grid-template-columns: 1fr !important; }
           div[style*="grid-template-columns: 130px 1fr"] { grid-template-columns: 1fr !important; }
-          .about-grid > div:last-child {
-            display: flex;
-            justify-content: center;
-          }
+          .about-grid > div:last-child { display: flex; justify-content: center; }
         }
       `}</style>
       
-      {/* Dynamic Conditional Display Toggle */}
       {articleKey ? (
         <ArticlePage 
           articleKey={articleKey} 
@@ -1419,17 +1989,14 @@ export default function App() {
         <div style={{ background: "#060a16", minHeight: "100vh", paddingTop: "70px" }}>
           <Navbar active={activeSection} />
           <Hero />
-          
-          {/* Kept your about section parameters safe */}
           <About articleOpen={!!articleKey} setArticleOpen={(val) => setArticleKey(val ? "genz" : null)} />
-          
           <Skills />
+          
+          {/* The state is safely managed inside Projects now! */}
           <Projects />
+          
           <Academic />
-          
-          {/* Dynamically captures whether you selected 'genz' or 'langtang' from the matrix cards */}
           <Blog onOpenArticle={(key) => setArticleKey(key)} />
-          
           <Gallery />
           <Contact />
           <Footer />
