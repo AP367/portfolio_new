@@ -273,9 +273,9 @@ function ProjectsDuplicate() {
           </div>
 
           {/* Primary Meta Specs Header */}
-          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-            <div style={{ fontFamily: "'Share Tech Mono', monospace", color: p.themeColor, fontSize: 12, letterSpacing: 3, marginBottom: 8 }}>{p.badge}</div>
-            <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: "clamp(1.5rem, 4vw, 2.2rem)", lineHeight: 1.2, fontWeight: 900, margin: "0 0 14px 0", color: "#fff" }}>{p.title}</h1>
+          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", textAlign: "left" }}>
+            <div style={{ fontFamily: "'Share Tech Mono', monospace", color: p.themeColor, fontSize: 12, letterSpacing: 3, marginBottom: 8, textAlign: "left" }}>{p.badge}</div>
+            <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: "clamp(1.5rem, 4vw, 2.2rem)", lineHeight: "1.35", letterSpacing: "-0.01em", textAlign: "justify", fontWeight: 900, margin: "0 0 14px 0", color: "#fff" }}>{p.title}</h1>
             
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 24 }}>
               {p.tech.map((t, idx) => (
@@ -931,7 +931,9 @@ function Projects() {
           { name: "Status LEDs", function: "Emits real-time diagnostic status updates across normal, active fault, and tripped configurations" },
           { name: "Reset Button", function: "Implements manual mechanical fault clearing authorization before closing the loop" }
         ],
-        formula: "I_trip = k × I_rated (Where k acts as the trip factor multiplier balanced at 1.5–2.0x standard load to handle high-inrush motor startup currents without causing false-positive trips).",
+        formula: `I_trip = k × I_rated \n\n
+
+(Where k acts as the trip factor multiplier balanced at 1.5–2.0x standard load to handle high-inrush motor startup currents without causing false-positive trips).`,
         decisions: [
           "Relay-Centric Architecture: Opting out of a microcontroller removes software dependencies, clock cycles, and firmware crashes. This ensures robust, deterministic analog tracking ideal for harsh, unattended farm zones.",
           "Calibration Balance: The sensing parameters are tightly bounded: tuned high enough to shrug off massive motor-starting inrush spikes, but low enough to capture minimal-fault soil pathways.",
@@ -1056,9 +1058,9 @@ function Projects() {
             )}
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-            <div style={{ fontFamily: "'Share Tech Mono', monospace", color: p.themeColor, fontSize: 12, letterSpacing: 3, marginBottom: 8 }}>{p.badge}</div>
-            <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: "1.8rem", fontWeight: 900, margin: "0 0 14px 0", color: "#fff" }}>{p.title}</h1>
+          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", textAlign: "left" }}>
+            <div style={{ fontFamily: "'Share Tech Mono', monospace", color: p.themeColor, fontSize: 12, letterSpacing: 3, marginBottom: 8, textAlign: "left" }}>{p.badge}</div>
+            <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: "1.8rem", lineHeight: "1.35", letterSpacing: "-0.01em", textAlign: "justify", fontWeight: 900, margin: "0 0 14px 0", color: "#fff" }}>{p.title}</h1>
             
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 24 }}>
               {p.tech.map((t, idx) => (
