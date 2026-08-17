@@ -79,7 +79,7 @@ function ProjectsDuplicate() {
       themeColor: "#00d4ff",
       icon: "⚡",
       pdfLabel: "View Project Report",
-      pdfUrl: 
+     
       details: {
         location: "Department of Electrical Engineering, IOE",
         duration: "Academic Semester",
